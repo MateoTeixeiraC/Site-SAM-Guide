@@ -183,8 +183,17 @@ body {
     border-radius: 12px;
     object-fit: cover;
   }
+
+  /*Section 2*/
+
+  .bg-light p {
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 500;
+  }
   
-  /* Responsive : pile tout en colonne et ajuste la taille */
+  
+  /* Responsive*/
   @media (max-width: 992px) {
     .inner-container {
       flex-direction: column;
@@ -207,7 +216,6 @@ body {
 .custom-site-footer {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-  top: 40px;
   padding-bottom: 20px;
   padding-right: 10px;
     background-color: #A8D4E4;
@@ -219,6 +227,26 @@ body {
     text-align: center;
     width: 100%;
   }
+
+  .custom-blue-button {
+    display: inline-block;
+    background-color: #A8D4E4; /* même bleu que le header */
+    color: #000;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .custom-blue-button:hover {
+    background-color: #8EC1D8;
+    transform: translateY(-2px);
+  }
+  
   
 
 /* MOBILE */
