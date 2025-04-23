@@ -94,12 +94,12 @@ body {
 .burger-text {
   position: absolute;
   top: 32px;
-  right: 90px; /* ajuste selon la largeur du burger */
+  right: 100px;
   font-size: 14px;
   line-height: 1.2;
   color: #333;
   text-align: left;
-  font-weight: bolder;
+  font-weight: 900;
   font-style: italic;
 }
 
@@ -148,41 +148,89 @@ body {
 
 
 /*Section 1*/
-  .intro-section {
-    background-color: #A8D4E4;
-    width: 100vw;
-    margin: 0;
-    padding: 40px 0;
+.intro-section {
+  background-color: #A8D4E4;
+  width: 100vw;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center; /* centre le groupe */
+}
+
+.intro-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 45px; /* écart constant entre texte et image */
+}
+
+.intro-text {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.intro-img img {
+  width: 700px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+h2{
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    justify-content: center;
   }
-  
-  .inner-container {
-    max-width: 1400px;
-    margin: 0 auto;
-    padding: 0 30px;
-    display: flex;
-    flex-direction: row;
-    gap: 40px;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .intro-text {
-    background-color: white;
-    padding: 1.5rem;
-    border-radius: 12px;
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+  .intro-group {
+    flex-direction: column; /* <- C’est ça qu’il faut changer */
+    align-items: center;     /* pour bien centrer */
     text-align: center;
-    flex-shrink: 0;
-    /* Largeur fixe seulement sur grand écran */
-    width: 300px;
+    gap: 10px;
   }
-  
-  .intro-img img {
+
+  .intro-text {
+    padding: 1.5rem;
+    width: 100%;
     max-width: 90%;
-    height: auto;
-    border-radius: 12px;
-    object-fit: cover;
+    text-align: center;
   }
+
+  .intro-img img {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 3vw;
+  }
+
+  .row {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+
+  .col-md-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
   /*Section 2*/
 
@@ -191,25 +239,26 @@ body {
     font-size: 1rem;
     font-weight: 500;
   }
-  
-  
-  /* Responsive*/
-  @media (max-width: 992px) {
-    .inner-container {
-      flex-direction: column;
-      text-align: center;
-    }
-  
-    .intro-text {
-      width: 100%;
-      max-width: 90%;
-    }
-  
-    .intro-img img {
-      max-width: 100%;
-    }
-  }
-  
+
+  /* Section avec le cercle en haut */
+.col-md-4 {
+  position: relative; /* Nécessaire pour positionner le cercle par rapport à chaque bloc */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-md-4::before {
+  content: ""; /* Permet de créer un élément vide */
+  position: absolute; /* Positionner le cercle */
+  top: -20px; /* Décale le cercle vers le haut par rapport au bloc */
+  left: 50%; /* Centrer le cercle horizontalement */
+  transform: translateX(-50%); /* Ajuste le positionnement pour qu'il soit exactement centré */
+  width: 40px; /* Taille du cercle */
+  height: 40px; /* Taille du cercle */
+  border-radius: 50%; /* Donne la forme ronde */
+  background-color: grey; /* Couleur du cercle */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le style */
+}
 
 /*CSS Bootstrap custom*/
 
@@ -256,4 +305,8 @@ body {
   .burger-text {
     display: none;
   }
+
+  .img-anr{
+    margin-bottom: 30px;
+    }
 }
