@@ -1,6 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Segoe UI', sans-serif;
   background-color: #FFFFFF;
   color: #333;
 }
@@ -10,13 +15,13 @@ body {
   align-items: center;
   justify-content: space-between;
   background-color: #A8D4E4;
-  height: 90px;
+  height: 100px;
   padding: 10px 20px;
   position: relative;
 }
 
 .site-title {
-  font-size: 1.5rem;
+  font-size: 2rem;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   margin: 0 auto;
   font-weight: 500;
@@ -25,7 +30,7 @@ body {
 .language-switch {
   position: absolute;
   left: 20px;
-  top: 10px;
+  top: 12px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -35,8 +40,8 @@ body {
   background: #fff;
   border: none;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   font-weight: bold;
   cursor: pointer;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
@@ -66,8 +71,8 @@ body {
 
 /* Style du bouton burger */
 .burger-menu {
-  position: fixed;
-  top: 40px;
+  position: absolute;
+  top: 35px;
   right: 40px;
   width: 40px;
   height: 30px;
@@ -84,6 +89,18 @@ body {
   background-color: white;
   border-radius: 5px;
   transition: 0.3s;
+}
+
+.burger-text {
+  position: absolute;
+  top: 32px;
+  right: 100px;
+  font-size: 14px;
+  line-height: 1.2;
+  color: #333;
+  text-align: left;
+  font-weight: 900;
+  font-style: italic;
 }
 
 /* Style du menu */
@@ -129,3 +146,182 @@ body {
 .burger-menu.active .bar:nth-child(3) {
   transform: translateY(-12px) rotate(-45deg); /* Monte plus avant la rotation */}
 
+
+/*Section 1*/
+.intro-section {
+  background-color: #A8D4E4;
+  width: 100vw;
+  margin: 0;
+  padding: 40px 0;
+}
+
+.inner-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 30px;
+  display: flex;
+  justify-content: center; /* centre le groupe */
+}
+
+.intro-group {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 45px; /* écart constant entre texte et image */
+}
+
+.intro-text {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  max-width: 400px;
+  flex-shrink: 0;
+}
+
+.intro-img img {
+  width: 700px;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+h2{
+  font-size: 30px;
+}
+
+@media (max-width: 768px) {
+  .intro-container {
+    justify-content: center;
+  }
+
+  .intro-group {
+    flex-direction: column; /* <- C’est ça qu’il faut changer */
+    align-items: center;     /* pour bien centrer */
+    text-align: center;
+    gap: 10px;
+  }
+
+  .intro-text {
+    padding: 1.5rem;
+    width: 100%;
+    max-width: 90%;
+    text-align: center;
+  }
+
+  .intro-img img {
+    width: 100%;
+    max-width: 90%;
+  }
+
+  h2 {
+    font-size: 3vw;
+  }
+
+  .row {
+    padding-left: 20px;
+    padding-right: 20px;
+    gap: 20px;
+  }
+
+  .col-md-4 {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
+
+  /*Section 2*/
+
+  .bg-light p {
+    text-align: justify;
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  /* Section avec le cercle en haut */
+.col-md-4 {
+  position: relative; /* Nécessaire pour positionner le cercle par rapport à chaque bloc */
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.col-md-4::before {
+  content: ""; /* Permet de créer un élément vide */
+  position: absolute; /* Positionner le cercle */
+  top: -20px; /* Décale le cercle vers le haut par rapport au bloc */
+  left: 50%; /* Centrer le cercle horizontalement */
+  transform: translateX(-50%); /* Ajuste le positionnement pour qu'il soit exactement centré */
+  width: 40px; /* Taille du cercle */
+  height: 40px; /* Taille du cercle */
+  border-radius: 50%; /* Donne la forme ronde */
+  background-color: grey; /* Couleur du cercle */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le style */
+}
+
+/*CSS Bootstrap custom*/
+
+.custom-site-footer {
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bolder;
+  padding-bottom: 20px;
+  padding-right: 10px;
+    background-color: #A8D4E4;
+    position: relative;
+  }
+
+.custom-mention{
+  margin-top: 50px;
+    text-align: center;
+    width: 100%;
+  }
+
+  .custom-blue-button {
+    display: inline-block;
+    background-color: #A8D4E4; /* même bleu que le header */
+    color: #000;
+    padding: 12px 28px;
+    border: none;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: background-color 0.3s, transform 0.2s;
+  }
+  
+  .custom-blue-button:hover {
+    background-color: #8EC1D8;
+    transform: translateY(-2px);
+  }
+  
+  
+
+/* MOBILE */
+
+/* Masquer le texte à côté du burger menu sur les petits écrans */
+@media (max-width: 768px) {
+  .burger-text {
+    display: none;
+  }
+
+  .burger-menu {
+    position: fixed;
+    z-index: 10000;
+  }
+
+  .bar {
+    background-color: #000; /* noir par défaut */
+    transition: background-color 0.3s;
+  }
+  
+  /* Quand la classe 'burger-white' est active sur le parent */
+  .burger-white .bar {
+    background-color: #fff; /* blanc quand le menu est ouvert */
+  }
+  
+  .img-anr{
+    margin-bottom: 30px;
+    }
+}
