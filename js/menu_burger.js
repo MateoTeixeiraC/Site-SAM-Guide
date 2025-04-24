@@ -6,5 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
     burger.addEventListener("click", function() {
         nav.classList.toggle("nav-active");
         burger.classList.toggle("active");
+
+        burger.classList.toggle("burger-white");
     });
 });
