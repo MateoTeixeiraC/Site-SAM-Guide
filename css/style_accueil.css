@@ -306,6 +306,21 @@ h2{
     display: none;
   }
 
+  .burger-menu {
+    position: fixed;
+    z-index: 10000;
+  }
+
+  .bar {
+    background-color: #000; /* noir par défaut */
+    transition: background-color 0.3s;
+  }
+  
+  /* Quand la classe 'burger-white' est active sur le parent */
+  .burger-white .bar {
+    background-color: #fff; /* blanc quand le menu est ouvert */
+  }
+  
   .img-anr{
     margin-bottom: 30px;
     }
