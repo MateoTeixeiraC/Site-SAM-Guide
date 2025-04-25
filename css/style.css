@@ -210,6 +210,10 @@ h2{
   font-size: 30px;
 }
 
+h3{
+  font-size: 30px;
+}
+
 @media (max-width: 768px) {
   .intro-container {
     justify-content: center;
@@ -238,6 +242,10 @@ h2{
     font-size: 5vw;
   }
 
+  h3 {
+    font-size: 5vw;
+  }
+  
   .row {
     padding-left: 20px;
     padding-right: 20px;
@@ -258,7 +266,6 @@ h2{
     font-weight: 500;
   }
 
-  /* Section avec le cercle en haut */
 .col-md-4 {
   position: relative; /* Nécessaire pour positionner le cercle par rapport à chaque bloc */
   padding-left: 15px;
@@ -278,6 +285,7 @@ h2{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le style */
 }
 
+/*Section 3*/
 
 .scientific-approach ul {
   padding-left: 2rem;
@@ -320,6 +328,8 @@ h2{
     text-align: center; /* Centre le contenu (l'image) en mode mobile */
   }
 }
+
+/*Section 4*/
 
 .timeline-v2 {
   display: flex;
@@ -374,6 +384,31 @@ h2{
   }
 }
 
+/*Section 5*/
+
+@media (min-width: 992px) {
+  .section-card-title {
+    font-size: 1.5rem;
+  }
+}
+
+.illustration-card img {
+  object-fit: contain;
+}
+
+@media (min-width: 768px) {
+  .laser-run-row {
+    min-height: 320px;
+  }
+}
+
+.sam-guide-banner {
+  height: 30%;
+  font-size: 3vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 
 /*CSS Bootstrap custom*/
