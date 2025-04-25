@@ -153,10 +153,16 @@ body {
   background-color: #d3d3d3; /* gris clair */
   border-radius: 8px;
   margin: 30px auto;
-  max-width: 900px;
+  margin-bottom: -10px;
+  max-width: 80%;
 }
 .intro-banner h2 {
   font-weight: bold;
+}
+
+.section-title {
+  text-align: left;
+  margin-left: 20px;
 }
 
 /*Section 1*/
@@ -179,7 +185,7 @@ body {
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 45px; /* écart constant entre texte et image */
+  gap: 45px !important; /* écart constant entre texte et image */
 }
 
 .intro-text {
@@ -244,8 +250,6 @@ h2{
   }
 }
 
-
-
   /*Section 2*/
 
   .bg-light p {
@@ -274,10 +278,107 @@ h2{
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le style */
 }
 
+
+.scientific-approach ul {
+  padding-left: 2rem;
+}
+
+.scientific-approach li {
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  font-size: 20px;
+}
+
+/* Étapes en flèches */
+.process-flow .step {
+  position: relative;
+  background-color: #e0e0e0;
+  padding: 1rem 2rem;
+  border-radius: 4px;
+  font-size: 20px;
+  font-weight: 600;
+  min-width: 120px;
+}
+
+.process-flow .step:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  right: -25px;
+  transform: translateY(-50%);
+  border-top: 15px solid transparent;
+  border-bottom: 15px solid transparent;
+  border-left: 25px solid #e0e0e0;
+}
+
+.text-justify {
+  text-align: justify;
+}
+
+@media (max-width: 767px) {
+  .d-md-flex {
+    text-align: center; /* Centre le contenu (l'image) en mode mobile */
+  }
+}
+
+.timeline-v2 {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.timeline-row {
+  display: flex;
+  align-items: flex-start;
+}
+
+.timeline-year {
+  flex: 0 0 80px;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-right: 1.5rem;
+  text-align: right;
+  color: #222;
+}
+
+.timeline-events {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.timeline-item {
+  font-size: 1.2rem;
+  background-color: #f0f0f0;
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  margin-right: 1rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+/* Optionnel : un peu d'air autour en version mobile */
+@media (max-width: 576px) {
+  .timeline-row {
+    flex-direction: column;
+  }
+
+  .timeline-year {
+    text-align: left;
+    margin-bottom: 0.5rem;
+  }
+
+  .timeline-item {
+    margin-right: 0;
+    font-size: 0.95rem;
+  }
+}
+
+
+
 /*CSS Bootstrap custom*/
 
 .custom-site-footer {
-  font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
   padding-bottom: 20px;
   padding-right: 10px;
