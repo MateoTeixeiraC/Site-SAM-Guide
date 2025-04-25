@@ -148,6 +148,7 @@ body {
 .burger-menu.active .bar:nth-child(3) {
   transform: translateY(-12px) rotate(-45deg); /* Monte plus avant la rotation */}
 
+  
 
 /*Section 1*/
 .intro-section {
