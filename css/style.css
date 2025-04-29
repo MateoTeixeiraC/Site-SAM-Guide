@@ -403,14 +403,24 @@ h3{
 }
 
 @media (min-width: 992px) {
-  
-
   .section-card-title {
     font-size: 1.5rem;
   }
 }
 
+.application{
+  font-size: 0.95rem; /* réduit globalement la taille du texte */
+  max-width: 1000px;  /* limite la largeur même en grand écran */
+  margin: 0 auto;     /* centre horizontalement */
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
 .illustration-card img {
+  object-fit: contain;
+}
+
+.illustration-laserrun {
   object-fit: contain;
 }
 
@@ -423,7 +433,6 @@ h3{
 }
 
 /*Consortium*/
-
 
 .card-img-top {
   height: 250px;              /* hauteur fixe, ajustable selon ton besoin */
