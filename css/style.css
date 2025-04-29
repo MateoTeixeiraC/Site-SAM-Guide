@@ -424,6 +424,7 @@ h3{
 
 /*Consortium*/
 
+
 .card-img-top {
   height: 250px;              /* hauteur fixe, ajustable selon ton besoin */
   object-fit: cover;          /* croppe l’image pour remplir le cadre sans déformation */
@@ -446,12 +447,12 @@ h3{
 }
 
 .circle {
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   background-color: #777;
   border-radius: 50%;
   position: absolute;
-  top: -15px;
+  top: -19px;
   left: 50%;
   transform: translateX(-50%);
   border: 2px solid white;
@@ -461,9 +462,17 @@ h3{
   font-size: 1rem; /* plus petit sur mobile */
 }
 
+.intro-consortium {
+  font-size: 1rem;
+}
+
 @media (min-width: 768px) {
   .responsive-text {
     font-size: 1.25rem; /* plus grand sur desktop */
+  }
+ 
+  .intro-consortium {
+    font-size: 1.5rem;
   }
 }
 
