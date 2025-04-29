@@ -10,3 +10,8 @@ document.addEventListener("DOMContentLoaded", function() {
         burger.classList.toggle("burger-white");
     });
 });
+
+document.querySelectorAll('.text-justify').forEach(p => {
+    p.innerHTML = p.innerHTML.replace(/ (\S+)\s*$/, '&nbsp;$1');
+  });
+  

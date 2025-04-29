@@ -422,6 +422,51 @@ h3{
   justify-content: center;
 }
 
+/*Consortium*/
+
+.card-img-top {
+  height: 250px;              /* hauteur fixe, ajustable selon ton besoin */
+  object-fit: cover;          /* croppe l’image pour remplir le cadre sans déformation */
+  width: 100%;                /* garantit que l’image remplit la largeur de la carte */
+}
+
+.card-img-solo {
+  height: 350px;              /* hauteur fixe, ajustable selon ton besoin */
+  object-fit: cover;          /* croppe l’image pour remplir le cadre sans déformation */
+  width: 100%;                /* garantit que l’image remplit la largeur de la carte */
+}
+
+.consortium-box {
+  max-width: 1400px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.circle {
+  width: 30px;
+  height: 30px;
+  background-color: #777;
+  border-radius: 50%;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid white;
+}
+
+.responsive-text {
+  font-size: 1rem; /* plus petit sur mobile */
+}
+
+@media (min-width: 768px) {
+  .responsive-text {
+    font-size: 1.25rem; /* plus grand sur desktop */
+  }
+}
+
 
 /*CSS Bootstrap custom*/
 
