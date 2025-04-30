@@ -39,65 +39,95 @@
       <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
         <h2 class="m-0">Actualités</h2>
       </section>
-<main>
+
+      <main>
+        <section class="container my-5" style="max-width: 1500px; margin: 0 auto;">
+          <!-- Trois petits points pour indiquer des actualités à venir -->
+          <div class="text-center text-muted fs-3 mb-3" aria-hidden="true">
+            D'autres actualités à venir…
+          </div>
       
-  <section class="container my-5" style="max-width: 900px;">
-    <!-- Trois petits points pour indiquer des actualités à venir -->
-    <div class="text-center text-muted fs-3 mb-4 " aria-hidden="true">D'autres actualités à venir…</div>
-  
-    <!-- Bloc d'actualité 1 -->
-    <div class="news-block shadow rounded overflow-hidden mb-5">
-      <!-- Carrousel d'images -->
-      <div id="carouselNews" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="../img/reunion/reunionstade.JPG" alt="Actu 1" class="w-100 d-block">
+          <div class="row g-4">
+      
+            <!-- Actualité 1 -->
+            <div class="col-md-6">
+              <div class="news-block shadow rounded overflow-hidden h-100">
+                <div id="carouselNews1" class="carousel slide" data-bs-ride="carousel">
+                  <div class="carousel-inner">
+                    <div class="carousel-item active">
+                      <img src="../img/reunion/1.JPG" class="w-100 d-block" alt="Actu 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../img/reunion/2.JPG" class="w-100 d-block" alt="Actu 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../img/reunion/3.JPG" class="w-100 d-block" alt="Actu 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../img/reunion/4.JPG" class="w-100 d-block" alt="Actu 1">
+                    </div>
+                    <div class="carousel-item">
+                      <img src="../img/reunion/5.JPG" class="w-100 d-block" alt="Actu 1">
+                    </div>
+                  </div>
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews1" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                  </button>
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews1" data-bs-slide="next">
+                    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                  </button>
+                </div>
+                <div class="px-4 py-3">
+                  <p class="text-muted mb-2">13/14 mars 2025</p>
+                  <h4 class="fw-bold text-center">Réunion 2025</h4>
+                  <p class="fs-5">Voici quelques images de la réunion Rouennaise de l'équipe du LITIS les 13 et 14 mars 2025</p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Actualité 2 -->
+            <div class="col-md-6">
+              <div class="news-block shadow rounded overflow-hidden h-100">
+                <img src="../img/reunion/reunion1.JPG" class="w-100 d-block" alt="Actu 2">
+                <div class="px-4 py-3">
+                  <p class="text-muted mb-2">18 mars 2025</p>
+                  <h4 class="fw-bold text-center">Autre actualité</h4>
+                  <p class="fs-6">Nulla facilisi. Vivamus in lacus a lacus fermentum venenatis. Maecenas luctus congue felis.</p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Template Actualité 3 -->
+            <div class="col-md-6">
+              <div class="news-block shadow rounded overflow-hidden h-100">
+                <img src="../img/reunion/reunion1.JPG" class="w-100 d-block" alt="Actu 3">
+                <div class="px-4 py-3">
+                  <p class="text-muted mb-2">Date à venir</p>
+                  <h4 class="fw-bold text-center">Titre de l’actualité</h4>
+                  <p class="fs-6">Texte de l’actualité à venir. Ceci est un exemple de contenu futur.</p>
+                </div>
+              </div>
+            </div>
+      
+            <!-- Template Actualité 4 -->
+            <div class="col-md-6">
+              <div class="news-block shadow rounded overflow-hidden h-100">
+                <img src="../img/reunion/reunion1.JPG" class="w-100 d-block" alt="Actu 4">
+                <div class="px-4 py-3">
+                  <p class="text-muted mb-2">Date à venir</p>
+                  <h4 class="fw-bold text-center">Titre de l’actualité</h4>
+                  <p class="fs-6">Texte court ici aussi. Vous pouvez compléter avec les informations souhaitées.</p>
+                </div>
+              </div>
+            </div>
+      
           </div>
-          <div class="carousel-item">
-            <img src="../img/reunion/reunion1.JPG" alt="Actu 2" class="w-100 d-block">
-          </div>
-          <div class="carousel-item">
-            <img src="../img/reunion/reunionstade.JPG" alt="Actu 3" class="w-100 d-block">
-          </div>
-        </div>
-        <!-- Contrôles du carrousel -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Précédent</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Suivant</span>
-        </button>
-      </div>
-    
-      <!-- Texte en dessous de l'image -->
-      <div class="px-4 py-2">
-        <p class="text-muted mb-2">13/14 mars 2025</p>
-        <h4 class="fw-bold mb-3 text-center">Réunion 2025</h4>
-        <p>
-          L'équipe de LITIS s'est réunie le 13 et 14 mars au stade pour faire un point
-        </p>
-      </div>
-    </div>
-    
-  
-    <!-- Bloc d'actualité 2 -->
-    <div class="news-block shadow rounded overflow-hidden mb-5">
-      <img src="../img/reunion/reunion1.JPG" alt="Actu 2" class="w-100 d-block">
-      <div class="px-4 py-2">
-        <p class="text-muted mb-2">18 mars 2025</p>
-        <h4 class="fw-bold mb-3 text-center">Autre actualité</h4>
-        <p class="">
-          Nulla facilisi. Vivamus in lacus a lacus fermentum venenatis. Maecenas luctus congue felis, eu malesuada ante rutrum a.
-        </p>
-      </div>
-    </div>
-
-  </section>
-  
-
-</main>
+        </section>
+      </main>
+      
+      
       
       <footer class="custom-site-footer text-center text-lg-start mt-auto border-top pt-4">
         <div class="container">
@@ -124,5 +154,7 @@
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+
 </body>
 </html>

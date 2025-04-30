@@ -175,6 +175,7 @@ body {
 }
 
 .intro-text {
+  font-size: 5vw;
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -192,10 +193,6 @@ body {
   flex-shrink: 0;
 }
 
-h2{
-  font-size: 30px;
-}
-
 @media (max-width: 768px) {
   .intro-container {
     justify-content: center;
@@ -209,7 +206,8 @@ h2{
   }
 
   .intro-text {
-    padding: 1.5rem;
+    font-size: 0.5rem;
+    padding: 1rem;
     width: 100%;
     max-width: 90%;
     text-align: center;
@@ -307,7 +305,16 @@ h2{
 /* Masquer le texte à côté du burger menu sur les petits écrans */
 @media (max-width: 768px) {
   .burger-text {
-    display: none;
+    position: absolute;
+  top: 80px;
+  right: 25px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #333;
+  text-align: center;
+  font-weight: 900;
+  font-style: italic;
   }
 
   .burger-menu {
