@@ -196,6 +196,7 @@ body {
 }
 
 .intro-text {
+  font-size: 2rem;
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -227,9 +228,9 @@ h3{
   }
 
   .intro-text {
-    padding: 1.5rem;
+    font-size: 1rem;
+    padding: 1rem;
     width: 100%;
-    max-width: 90%;
     text-align: center;
   }
 
@@ -524,11 +525,31 @@ h3{
   font-size: 1.2rem;
 }
 
+.carousel-inner {
+  height: 400px;
+}
+
+.carousel-item {
+  height: 100%; /* S'assure que chaque item remplit la hauteur */
+}
+
+.carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Media query pour mobile */
 @media (max-width: 768px) {
-  .news-block p{
+  .carousel-inner {
+    height: 200px; /* ou une valeur adaptée à ton design mobile */
+  }
+
+  .news-block p {
     font-size: 1rem;
   }
 }
+
 
 
 /*CSS Bootstrap custom*/
