@@ -36,11 +36,65 @@
   </header>
 
   <!-- Titre de page -->
-      <section class="intro-banner text-center py-3 mb-1">
+      <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
         <h2 class="m-0">Actualités</h2>
       </section>
 <main>
       
+  <section class="container my-5" style="max-width: 900px;">
+    <!-- Trois petits points pour indiquer des actualités à venir -->
+    <div class="text-center text-muted fs-3 mb-4 " aria-hidden="true">D'autres actualités à venir…</div>
+  
+    <!-- Bloc d'actualité 1 -->
+    <div class="news-block shadow rounded overflow-hidden mb-5">
+      <!-- Carrousel d'images -->
+      <div id="carouselNews" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img src="../img/reunion/reunionstade.JPG" alt="Actu 1" class="w-100 d-block">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/reunion/reunion1.JPG" alt="Actu 2" class="w-100 d-block">
+          </div>
+          <div class="carousel-item">
+            <img src="../img/reunion/reunionstade.JPG" alt="Actu 3" class="w-100 d-block">
+          </div>
+        </div>
+        <!-- Contrôles du carrousel -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Précédent</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselNews" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Suivant</span>
+        </button>
+      </div>
+    
+      <!-- Texte en dessous de l'image -->
+      <div class="px-4 py-2">
+        <p class="text-muted mb-2">13/14 mars 2025</p>
+        <h4 class="fw-bold mb-3 text-center">Réunion 2025</h4>
+        <p>
+          L'équipe de LITIS s'est réunie le 13 et 14 mars au stade pour faire un point
+        </p>
+      </div>
+    </div>
+    
+  
+    <!-- Bloc d'actualité 2 -->
+    <div class="news-block shadow rounded overflow-hidden mb-5">
+      <img src="../img/reunion/reunion1.JPG" alt="Actu 2" class="w-100 d-block">
+      <div class="px-4 py-2">
+        <p class="text-muted mb-2">18 mars 2025</p>
+        <h4 class="fw-bold mb-3 text-center">Autre actualité</h4>
+        <p class="">
+          Nulla facilisi. Vivamus in lacus a lacus fermentum venenatis. Maecenas luctus congue felis, eu malesuada ante rutrum a.
+        </p>
+      </div>
+    </div>
+
+  </section>
   
 
 </main>

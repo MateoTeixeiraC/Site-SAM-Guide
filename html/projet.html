@@ -35,12 +35,14 @@
         </nav>
       </header>
 
-      <section class="intro-banner text-center py-3">
+<main>
+
+      <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
         <h2 class="m-0">Le projet SAM-Guide</h2>
       </section>
       
-      <section class="container my-5">
-        <h3 class="mb-5 fw-bold">Nos objectifs</h3>
+      <section class="container my-5" style="max-width: 1500px; margin: 0 auto;">
+        <h3 class="mb-5 fw-bold text-center">Nos objectifs</h3>
       
 <div class="row text-center mb-4 gx-4 gy-4">
   <div class="col-md-4">
@@ -101,54 +103,63 @@
   </div>
 </section>
 
-<section class="container my-5">
-  <h3 class="mb-4 fw-bold">Les technologies mobilisées</h3>
+<section class="container my-5" style="max-width: 1700px; margin: 0 auto;">
+  <h3 class="mb-3 fw-bold text-center">Les technologies mobilisées</h3>
   
   <div class="row gy-4">
+
     <!-- Bloc 1 -->
-    <div class="col-md-12">
-      <div class="d-md-flex align-items-center bg-light p-4 rounded shadow-sm">
-        <div class="flex-grow-1 pe-md-4">
-          <h4 class="fw-bold">Ceinture Tactile</h4>
-          <p class="text-justify">
-            La ceinture vibratoire développée dans le cadre de SAM-Guide est un dispositif porté autour de la taille, équipé de plusieurs moteurs vibrants positionnés tout autour du corps. Chaque vibration est utilisée pour transmettre une information directionnelle : par exemple, une vibration à droite indique une direction vers la droite. Ce dispositif permet aux utilisateurs d’anticiper un virage ou de s’aligner sur un chemin, même en l’absence d’un repère visuel. L’usage de la ceinture limite les mains et l’attention mobilisées, ce qui la rend particulièrement utile dans des situations où la sécurité prime (franchissement de rues, activités sportives, etc.).
-          </p>
-        </div>
-        <img src="../img/ceinture.jpg" alt="Ceinture Tactile" class="img-fluid rounded mt-3 mt-md-0" style="max-width: 250px;">
-      </div>
+<div class="col-md-12">
+  <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
+    <div class="flex-grow-1 p-4">
+      <h4 class="fw-bold">Ceinture Tactile</h4>
+      <p class="text-justify">
+        La ceinture vibratoire développée dans le cadre de SAM-Guide est un dispositif porté autour de la taille, équipé de plusieurs moteurs vibrants positionnés tout autour du corps. Chaque vibration est utilisée pour transmettre une information directionnelle : par exemple, une vibration à droite indique une direction vers la droite. Ce dispositif permet aux utilisateurs d’anticiper un virage ou de s’aligner sur un chemin, même en l’absence d’un repère visuel. L’usage de la ceinture limite les mains et l’attention mobilisées, ce qui la rend particulièrement utile dans des situations où la sécurité prime (franchissement de rues, activités sportives, etc.).
+      </p>
     </div>
+    <div class="w-100 w-md-auto img-technologie">
+      <img src="../img/ceinture.jpg" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+</div>
 
-    <!-- Bloc 2 -->
-    <div class="col-md-12">
-      <div class="d-md-flex align-items-center bg-light p-4 rounded shadow-sm">
-        <div class="flex-grow-1 pe-md-4">
-          <h4 class="fw-bold">Sons spatialisés</h4>
-          <p class="text-justify">
-            Le son spatialisé est une autre composante clé du projet. Grâce à des algorithmes de traitement audio basés sur la HRTF (Head-Related Transfer Function), les sons générés par le dispositif peuvent être perçus comme venant d’un point précis dans l’espace autour de l’utilisateur. Cela permet par exemple de localiser un objet ou un obstacle par le son. Ce dispositif améliore considérablement l’orientation et la perception de l’environnement. Cela nécessite également une précision de l'espace, en particulier dans les environnements complexes ou dynamiques comme les déplacements extérieurs.
-          </p>
-        </div>
-        <img src="../img/ceinture.jpg" alt="Sons spatialisés" class="img-fluid rounded mt-3 mt-md-0" style="max-width: 250px;">
-      </div>
+<!-- Bloc 2 -->
+<div class="col-md-12 mt-4">
+  <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
+    <div class="flex-grow-1 p-4">
+      <h4 class="fw-bold">Sons spatialisés</h4>
+      <p class="text-justify">
+        Le son spatialisé est une autre composante clé du projet. Grâce à des algorithmes de traitement audio basés sur la HRTF (Head-Related Transfer Function), les sons générés par le dispositif peuvent être perçus comme venant d’un point précis dans l’espace autour de l’utilisateur. Cela permet par exemple de localiser un objet ou un obstacle par le son. Ce dispositif améliore considérablement l’orientation et la perception de l’environnement. Cela nécessite également une précision de l'espace, en particulier dans les environnements complexes ou dynamiques comme les déplacements extérieurs.
+      </p>
     </div>
+    <div class="w-100 w-md-auto img-technologie">
+      <img src="../img/ceinture.jpg" alt="Sons spatialisés" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+</div>
 
-    <!-- Bloc 3 -->
-    <div class="col-md-12">
-      <div class="d-md-flex align-items-center bg-light p-4 rounded shadow-sm">
-        <div class="flex-grow-1 pe-md-4">
-          <h4 class="fw-bold">Systèmes de capture et réalité augmentée</h4>
-          <p class="text-justify">
-            Pour concevoir et tester les technologies, le projet utilise des environnements numériques enrichis et ajustés en temps réel à l’aide de systèmes de capture de mouvement. Cela permet de simuler des espaces complexes dans lesquels les utilisateurs peuvent être guidés et orientés grâce à des signaux sensoriels. La réalité augmentée permet de modéliser précisément l’environnement, de détecter les interactions, et d’adapter les signaux aux mouvements et à l’attention de l’utilisateur, afin d’optimiser la fluidité d’usage et de personnalisation.
-          </p>
-        </div>
-        <img src="../img/ceinture.jpg" alt="Réalité augmentée" class="img-fluid rounded mt-3 mt-md-0" style="max-width: 250px;">
-      </div>
+<!-- Bloc 3 -->
+<div class="col-md-12 mt-4">
+  <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
+    <div class="flex-grow-1 p-4">
+      <h4 class="fw-bold">Systèmes de capture et réalité augmentée</h4>
+      <p class="text-justify">
+        Pour concevoir et tester les technologies, le projet utilise des environnements numériques enrichis et ajustés en temps réel à l’aide de systèmes de capture de mouvement. Cela permet de simuler des espaces complexes dans lesquels les utilisateurs peuvent être guidés et orientés grâce à des signaux sensoriels. La réalité augmentée permet de modéliser précisément l’environnement, de détecter les interactions, et d’adapter les signaux aux mouvements et à l’attention de l’utilisateur, afin d’optimiser la fluidité d’usage et de personnalisation.
+      </p>
     </div>
+    <div class="w-100 w-md-auto img-technologie">
+      <img src="../img/ceinture.jpg" alt="Réalité augmentée" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+</div>
+
+    
   </div>
 </section>
 
 <!-- Timeline -->
-<section class="container my-5">
-  <h3 class="fw-bold mb-4">L’avancée du projet</h3>
+<section class="container my-5" style="max-width: 1500px; margin: 0 auto;">
+  <h3 class="fw-bold mb-3 text-center">L’avancée du projet</h3>
   <div class="timeline-v2">
     
     <!-- 2021 -->
@@ -204,59 +215,57 @@
   </div>
 </section>
 
-<section class="container my-5 application">
-  <h3 class="fw-bold mb-4">Applications Pratiques</h3>
+<section class="container-fluid my-5 px-3 px-md-5">
+  <h3 class="fw-bold mb-3 text-center">Applications Pratiques</h3>
+  <div class="row g-4 justify-content-center">
 
-  <!-- Laser-Run -->
-  <div class="border border-dark border-2 rounded p-4 mb-5 shadow-sm">
-    <h4 class="fw-bold mb-3">Laser-Run</h4>
-    <div class="row align-items-center laser-run-row">
-      <div class="col-md-7 fs-5 d-flex flex-column justify-content-center text-justify">
-        <p>
-          Le Laser-Run adapté est une application concrète du projet SAM-Guide, pensée comme un terrain d’expérimentation ludique et sensorielle pour les personnes aveugles ou malvoyantes. À travers une activité inspirée du tir sportif et de la course, ce dispositif mobilise des technologies tactiles et sonores pour guider les participants dans l’espace, renforcer leur autonomie, et développer leur perception spatiale. Il illustre la manière dont les systèmes de transcodage sensoriel développés dans le projet peuvent être intégrés à des activités inclusives, dynamiques et accessibles à tous.
-        </p>
-      </div>
-      <div class="col-md-5 d-flex illustration-laserrun">
-        <img src="../img/schemaglobal.jpg" alt="Illustration Laser-Run" class="img-fluid rounded">
-      </div>
-    </div>
-  </div>
-
-  <!-- Deux encadrés + SAM-GUIDE -->
-  <div class="row g-4 fs-5">
-    <!-- Entraînement à la mobilité -->
-    <div class="col-md-6">
-      <div class="border rounded p-3 h-100 shadow-sm">
-        <h5 class="fw-bold section-card-title">Entraînement à la mobilité</h5>
-        <p class="text-justify">Les dispositifs SAM-Guide peuvent être utilisés dans des parcours de formation ou de rééducation pour aider à l'apprentissage de la navigation autonome en intérieur comme en extérieur.</p>
-        <div class="bg-light text-center rounded p-3 illustration-card">
-          <img src="../img/illustrationmobilite.png" alt="Entraînement mobilité" class="img-fluid rounded">
+    <!-- Bloc 1 -->
+    <div class="col-lg-4">
+      <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
+        <img src="../img/schemaglobal.jpg" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <div class="p-3 flex-grow-1 d-flex flex-column">
+          <h5 class="fw-bold mb-2">Laser-Run</h5>
+          <p class="fs-6 text-justify">
+            Le Laser-Run adapté est une application concrète du projet SAM-Guide, pensée comme un terrain d’expérimentation ludique et sensorielle pour les personnes aveugles ou malvoyantes.
+          </p>
         </div>
       </div>
     </div>
 
-    <!-- Navigation urbaine + SAM-GUIDE -->
-    <div class="col-md-6 d-flex flex-column gap-4">
-      <div class="border rounded p-3 shadow-sm">
-        <h5 class="fw-bold section-card-title">Navigation urbaine assistée</h5>
-        <p class="text-justify">À plus long terme, les technologies développées pourront être adaptées à des systèmes de guidage en ville ou dans des lieux complexes (gares, centres commerciaux), pour renforcer l'autonomie au quotidien.</p>
-        <div class="text-center bg-light rounded p-3 illustration-card">
-          <img src="../img/illustrationenville.png" alt="Navigation urbaine" class="img-fluid rounded mb-2">
+    <!-- Bloc 2 -->
+    <div class="col-lg-4">
+      <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
+        <img src="../img/illustrationmobilite.png" alt="Entraînement mobilité" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <div class="p-3 flex-grow-1 d-flex flex-column">
+          <h5 class="fw-bold mb-2">Entraînement à la mobilité</h5>
+          <p class="fs-6 text-justify">
+            Les dispositifs SAM-Guide peuvent être utilisés dans des parcours de formation ou de rééducation pour aider à l'apprentissage de la navigation autonome en intérieur comme en extérieur.
+          </p>
         </div>
       </div>
+    </div>
 
-      <!-- SAM-Guide dans la colonne -->
-      <div class="sam-guide-banner bg-dark text-white text-center rounded shadow-sm w-100">
-        <strong><em>SAM-Guide</em></strong>
+    <!-- Bloc 3 -->
+    <div class="col-lg-4">
+      <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
+        <img src="../img/illustrationenville.png" alt="Navigation urbaine" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <div class="p-3 flex-grow-1 d-flex flex-column">
+          <h5 class="fw-bold mb-2">Navigation urbaine assistée</h5>
+          <p class="fs-6 text-justify">
+            Ces technologies pourront être adaptées à des systèmes de guidage en ville ou dans des lieux complexes, pour renforcer l'autonomie au quotidien.
+          </p>
+        </div>
       </div>
     </div>
+
   </div>
 </section>
 
+
 <section class="container my-5">
-  <h3 class="fw-bold mb-4">Publications scientifiques</h3>
+  <h3 class="fw-bold mb-4 text-center">Publications scientifiques</h3>
   
-  <ul class="fs-6 ps-3">
+  <ul class="ps-3 publication-list">
     <li>
       Faugloire, E., Lejeune, L., Rivière, M.-A., & Mantel, B. (2022). <br>
       Spatiotemporal Influences on the Recognition of Two-dimensional Vibrotactile Patterns on the Abdomen. <br>
@@ -304,7 +313,7 @@
     </li>
   </ul>
 
-  <p class="mt-4 fw-bold">
+  <p class="mt-4 fw-bold align">
     Voir la liste : 
     <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank">
       https://ans.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011
