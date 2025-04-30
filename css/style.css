@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: 'Inria Sans', sans-serif;
+  color: #000;
 }
 
 body {
@@ -293,9 +294,15 @@ h3{
 }
 
 .scientific-approach li {
-  margin-bottom: 0.5rem;
-  font-weight: 500;
-  font-size: 20px;
+  font-weight: 400;
+}
+
+@media (min-width: 900px) {
+.scientific-approach li {
+  font-weight: 300;
+  font-size: 30px;
+  margin-left: 40px;
+}
 }
 
 /* Étapes en flèches */
@@ -340,12 +347,23 @@ h3{
   }
 }
 
+/*Technologies*/
+.img-technologie{
+  max-height: 200px;
+}
+
+@media (min-width: 767px) {
+.img-technologie{
+  max-width: 400px;
+}
+}
+
 /*Section 4*/
 
 .timeline-v2 {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 .timeline-row {
@@ -372,7 +390,7 @@ h3{
 .timeline-item {
   font-size: 1rem;
   background-color: #f0f0f0;
-  padding: 1rem 1.2rem;
+  padding: 0.5rem 1rem;
   border-radius: 6px;
   margin-right: 1rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
@@ -386,7 +404,7 @@ h3{
 
   .timeline-year {
     text-align: left;
-    margin-bottom: 0.5rem;
+    margin-bottom: -2rem;
   }
 
   .timeline-item {
@@ -410,7 +428,7 @@ h3{
 
 .application{
   font-size: 0.95rem; /* réduit globalement la taille du texte */
-  max-width: 1000px;  /* limite la largeur même en grand écran */
+  width: 1600px;  /* limite la largeur même en grand écran */
   margin: 0 auto;     /* centre horizontalement */
   padding-left: 1rem;
   padding-right: 1rem;
@@ -430,6 +448,16 @@ h3{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.publication-list{
+  font-size: 1rem;
+}
+
+@media (max-width: 992px) {
+  .publication-list{
+    font-size: 0.7rem;
+  }
 }
 
 /*Consortium*/
@@ -485,6 +513,23 @@ h3{
   }
 }
 
+/*Actualités*/
+
+.news-block img {
+  object-fit: cover;
+  max-height: 400px;
+}
+
+.news-block p{
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .news-block p{
+    font-size: 1rem;
+  }
+}
+
 
 /*CSS Bootstrap custom*/
 
@@ -520,9 +565,9 @@ h3{
     background-color: #8EC1D8;
     transform: translateY(-2px);
   }
-  
-  
 
+  
+  
 /* MOBILE */
 
 /* Masquer le texte à côté du burger menu sur les petits écrans */
