@@ -196,7 +196,7 @@ body {
 }
 
 .intro-text {
-  font-size: 2rem;
+  font-size: 10rem;
   background-color: white;
   padding: 1.5rem;
   border-radius: 12px;
@@ -214,13 +214,6 @@ body {
   flex-shrink: 0;
 }
 
-h2{
-  font-size: 30px;
-}
-
-h3{
-  font-size: 30px;
-}
 
 @media (max-width: 768px) {
   .intro-container {
@@ -228,7 +221,7 @@ h3{
   }
 
   .intro-text {
-    font-size: 1rem;
+    font-size: 0.5rem;
     padding: 1rem;
     width: 100%;
     text-align: center;
@@ -239,13 +232,6 @@ h3{
     max-width: 90%;
   }
 
-  h2 {
-    font-size: 5vw;
-  }
-
-  h3 {
-    font-size: 5vw;
-  }
   
   .row {
     padding-left: 20px;
@@ -522,7 +508,7 @@ h3{
 }
 
 .news-block p{
-  font-size: 1.2rem;
+  font-size: 1.5rem;
 }
 
 .carousel-inner {
@@ -550,7 +536,24 @@ h3{
   }
 }
 
+/*FAQ*/
+.accordion-button{
+  font-size: 1.5rem;
+}
 
+.accordion{
+  font-size: 1.2rem;
+}
+
+@media (max-width: 768px) {
+  .accordion-button{
+    font-size: 1.2rem;
+  }
+  
+  .accordion{
+    font-size: 1rem;
+  }
+}
 
 /*CSS Bootstrap custom*/
 
