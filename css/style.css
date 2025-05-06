@@ -555,6 +555,39 @@ body {
   }
 }
 
+/*Jeu Interactif*/
+
+.game-box {
+  max-width: 1400px;
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  position: relative;
+  background-color: white;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+}
+
+.game-circle {
+  width: 40px;
+  height: 40px;
+  background-color: #777;
+  border-radius: 50%;
+  position: absolute;
+  top: -19px;
+  left: 50%;
+  transform: translateX(-50%);
+  border: 2px solid white;
+}
+
+.game-box p {
+  font-size: 1.3rem;
+}
+
+@media (max-width: 768px) {
+.game-box p {
+  font-size: 0.8rem;
+}
+}
+
 /*CSS Bootstrap custom*/
 
 .custom-site-footer {
@@ -619,3 +652,7 @@ body {
     margin-bottom: 30px;
     }
 }
+
+.img-anr{
+  right: 20px;
+  }
