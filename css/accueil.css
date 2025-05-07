@@ -95,16 +95,28 @@ body {
 
 .burger-text {
   position: absolute;
-  top: 34px;
+  top: 35px;
   right: 100px;
-  font-size: 14px;
+  font-size: 1.5rem;
   font-weight: 800;
   line-height: 1.2;
-  color: #333;
+  color: black;
   text-align: left;
   font-weight: 900;
   font-style: italic;
 }
+
+.burger-text::after {
+  content: "";
+  display: inline-block;
+  width: 13px;
+  height: 13px;
+  margin-left: 10px;
+  background-image: url("data:image/svg+xml;utf8,<svg viewBox='0 0 10 10' xmlns='http://www.w3.org/2000/svg'><polygon points='0,0 10,5 0,10' fill='black'/></svg>");
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 
 /* Style du menu */
 .nav-links {
@@ -305,8 +317,9 @@ body {
 /* Masquer le texte à côté du burger menu sur les petits écrans */
 @media (max-width: 768px) {
   .burger-text {
+    display: none;
     position: absolute;
-  top: 80px;
+  top: 15px;
   right: 25px;
   font-size: 14px;
   font-weight: 800;

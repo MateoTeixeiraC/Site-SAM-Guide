@@ -1,141 +1,130 @@
-const canvas = document.getElementById('jeuCanvas');
-const ctx = canvas.getContext('2d');
+const canvas = document.getElementById("jeuCanvas");
+const ctx = canvas.getContext("2d");
 
-// Définition de la piste (forme arrondie)
-const piste = {
-  x: 300,
-  y: 200,
-  outerRadiusX: 250,  // Rayon horizontal
-  outerRadiusY: 140,  // Rayon vertical
-  innerRadiusX: 170,  // Rayon intérieur
-  innerRadiusY: 60    // Rayon intérieur vertical
-};
+const largeur = canvas.width;
+const hauteur = canvas.height;
 
-// Joueur (avec une image PNG de top view)
+// Piste ovale
+const centreX = largeur / 2;
+const centreY = hauteur / 2;
+const rayonX = 300;
+const rayonY = 150;
+const epaisseurPiste = 40;
+
+// Joueur
 const joueur = {
-  x: piste.x,
-  y: piste.y - piste.outerRadiusY - 20,  // Position initiale en haut
-  angle: Math.PI / 2,  // Regarde vers le bas au départ
-  speed: 2,  // Vitesse de déplacement
-  turnSpeed: 0.1,  // Vitesse de rotation
+  x: centreX,
+  y: centreY - rayonY + 20, // Point de départ en haut
+  angle: 90, // en degrés
+  vitesse: 2,
+  rotation: 4, // degrés
+  rayon: 10,
+  image: new Image(),
 };
+joueur.image.src = "joueur.png"; // Image vue de haut du joueur
 
 // Sons
-const bipGauche = document.getElementById('bipGauche');
-const bipDroite = document.getElementById('bipDroite');
-const audioArrivee = document.getElementById('audioArrivee');
+const bipGauche = document.getElementById("bipGauche");
+const bipDroite = document.getElementById("bipDroite");
+const bipArrivee = document.getElementById("bipArrivee");
 
-// Variables pour la détection du tour
-let tourComplet = false;
+let touchees = {};
+let aFaitUnTour = false;
+let checkpointDepart = false;
 
-// Fonction pour dessiner la piste
-function drawPiste() {
-  // Zone extérieure
-  ctx.fillStyle = '#ccc';
-  ctx.beginPath();
-  ctx.ellipse(piste.x, piste.y, piste.outerRadiusX, piste.outerRadiusY, 0, 0, Math.PI * 2);
-  ctx.fill();
+document.addEventListener("keydown", (e) => {
+  touchees[e.key] = true;
+  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
+    e.preventDefault();
+  }
+});
+document.addEventListener("keyup", (e) => {
+  touchees[e.key] = false;
+});
 
-  // Zone intérieure (vide)
-  ctx.fillStyle = '#fff';
-  ctx.beginPath();
-  ctx.ellipse(piste.x, piste.y, piste.innerRadiusX, piste.innerRadiusY, 0, 0, Math.PI * 2);
-  ctx.fill();
+function update() {
+  if (touchees["ArrowLeft"]) joueur.angle -= joueur.rotation;
+  if (touchees["ArrowRight"]) joueur.angle += joueur.rotation;
 
-  // Ligne d'arrivée (en haut de la piste)
-  ctx.strokeStyle = 'green';
-  ctx.lineWidth = 4;
-  ctx.beginPath();
-  ctx.moveTo(piste.x - 10, piste.y - piste.outerRadiusY);
-  ctx.lineTo(piste.x + 10, piste.y - piste.outerRadiusY);
-  ctx.stroke();
+  const rad = (joueur.angle * Math.PI) / 180;
+  if (touchees["ArrowUp"]) {
+    joueur.x += Math.cos(rad) * joueur.vitesse;
+    joueur.y += Math.sin(rad) * joueur.vitesse;
+  }
+  if (touchees["ArrowDown"]) {
+    joueur.x -= Math.cos(rad) * joueur.vitesse;
+    joueur.y -= Math.sin(rad) * joueur.vitesse;
+  }
+
+  // Distance à l’ellipse
+  const dx = joueur.x - centreX;
+  const dy = joueur.y - centreY;
+  const d2 = (dx * dx) / (rayonX * rayonX) + (dy * dy) / (rayonY * rayonY);
+
+  if (d2 > 1) {
+    bipDroite.currentTime = 0;
+    bipDroite.play();
+    // Revenir sur la piste
+    joueur.x -= Math.cos(rad) * joueur.vitesse;
+    joueur.y -= Math.sin(rad) * joueur.vitesse;
+  } else if (d2 < Math.pow((rayonX - epaisseurPiste) / rayonX, 2) +
+                    Math.pow((rayonY - epaisseurPiste) / rayonY, 2)) {
+    bipGauche.currentTime = 0;
+    bipGauche.play();
+    joueur.x -= Math.cos(rad) * joueur.vitesse;
+    joueur.y -= Math.sin(rad) * joueur.vitesse;
+  }
+
+  // Détection de passage au point de départ
+  const dansZoneDepart = dx * dx + (dy + rayonY - 20) * (dy + rayonY - 20) < 200;
+  if (dansZoneDepart) {
+    if (checkpointDepart) {
+      bipArrivee.play();
+      checkpointDepart = false;
+      aFaitUnTour = true;
+    }
+  } else {
+    checkpointDepart = true;
+  }
 }
 
-// Fonction pour dessiner le joueur
+function drawPiste() {
+  ctx.clearRect(0, 0, largeur, hauteur);
+
+  // Extérieur
+  ctx.beginPath();
+  ctx.ellipse(centreX, centreY, rayonX, rayonY, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#ccc";
+  ctx.fill();
+
+  // Intérieur
+  ctx.beginPath();
+  ctx.ellipse(centreX, centreY, rayonX - epaisseurPiste, rayonY - epaisseurPiste, 0, 0, Math.PI * 2);
+  ctx.fillStyle = "#fff";
+  ctx.fill();
+
+  // Zone de départ
+  ctx.fillStyle = "lightgreen";
+  ctx.fillRect(centreX - 30, centreY - rayonY + 10, 60, 10);
+}
+
 function drawJoueur() {
+  const rad = (joueur.angle * Math.PI) / 180;
+
   ctx.save();
   ctx.translate(joueur.x, joueur.y);
-  ctx.rotate(joueur.angle);
-  ctx.fillStyle = 'blue'; // Changer la couleur pour simuler le joueur
-  ctx.beginPath();
-  ctx.arc(0, 0, 15, 0, Math.PI * 2);
-  ctx.fill();
+  ctx.rotate(rad);
+  ctx.drawImage(joueur.image, -15, -15, 30, 30); // centré
   ctx.restore();
 }
 
-// Fonction pour détecter les collisions avec les bords de la piste
-function checkCollisionsAndFeedback() {
-  const dx = joueur.x - piste.x;
-  const dy = joueur.y - piste.y;
-  const dist = Math.pow(dx / piste.outerRadiusX, 2) + Math.pow(dy / piste.outerRadiusY, 2);
-  const distInner = Math.pow(dx / piste.innerRadiusX, 2) + Math.pow(dy / piste.innerRadiusY, 2);
-
-  if (dist > 1) {
-    bipDroite.play();
-    joueur.x -= Math.cos(joueur.angle) * joueur.speed;
-    joueur.y -= Math.sin(joueur.angle) * joueur.speed;
-  } else if (distInner < 1) {
-    bipGauche.play();
-    joueur.x -= Math.cos(joueur.angle) * joueur.speed;
-    joueur.y -= Math.sin(joueur.angle) * joueur.speed;
-  }
-}
-
-// Fonction pour vérifier si le joueur a terminé un tour
-function checkArrivee() {
-  if (!tourComplet && joueur.y < piste.y - piste.outerRadiusY + 5) {
-    tourComplet = true;
-    audioArrivee.play();
-    alert("Tour complété !");
-  }
-}
-
-// Fonction pour dessiner tout le jeu
-function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+function boucle() {
+  update();
   drawPiste();
   drawJoueur();
+  requestAnimationFrame(boucle);
 }
 
-// Fonction pour mettre à jour la position du joueur
-function updatePosition() {
-  if (keys['ArrowLeft']) {
-    joueur.angle -= joueur.turnSpeed;
-  }
-  if (keys['ArrowRight']) {
-    joueur.angle += joueur.turnSpeed;
-  }
-  if (keys['ArrowUp']) {
-    joueur.x += Math.cos(joueur.angle) * joueur.speed;
-    joueur.y += Math.sin(joueur.angle) * joueur.speed;
-  }
-  if (keys['ArrowDown']) {
-    joueur.x -= Math.cos(joueur.angle) * joueur.speed;
-    joueur.y -= Math.sin(joueur.angle) * joueur.speed;
-  }
-  checkCollisionsAndFeedback();
-  checkArrivee();
-}
-
-// Gestion des touches
-const keys = {};
-document.addEventListener('keydown', (e) => {
-  if (["ArrowUp", "ArrowDown", "ArrowLeft", "ArrowRight"].includes(e.key)) {
-    e.preventDefault(); // empêche le scroll et le changement d'onglet
-  }
-  keys[e.key] = true;
-});
-
-document.addEventListener('keyup', (e) => {
-  keys[e.key] = false;
-});
-
-// Boucle de jeu
-function gameLoop() {
-  updatePosition();
-  draw();
-  requestAnimationFrame(gameLoop);
-}
-
-// Démarre le jeu
-gameLoop();
+joueur.image.onload = () => {
+  boucle();
+};
