@@ -244,6 +244,7 @@ body {
     padding-left: 10px;
     padding-right: 10px;
   }
+  
 }
 
   /*Section 2*/
@@ -273,6 +274,42 @@ body {
   background-color: grey; /* Couleur du cercle */
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Ombre pour le style */
 }
+
+#carouselAccueil .carousel-inner {
+  height: 100%;
+  min-height: 400px; /* même hauteur que la section */
+}
+
+#carouselAccueil .carousel-item {
+  height: 100%;
+}
+
+#carouselAccueil .carousel-item img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.text-carousel{
+  font-size: 1.3rem !important;
+}
+
+.carousel-consortium {
+  height: 400px; /* hauteur par défaut */
+}
+
+@media (max-width: 768px) {
+  .carousel-consortium {
+    height: 200px; /* réduit sur mobile */
+  }
+
+  .text-carousel{
+    font-size: 0.9rem !important;
+  }
+}
+
+
+
 
 /*CSS Bootstrap custom*/
 
@@ -351,5 +388,5 @@ body {
 }
 
 .img-anr{
-  right: 20px;
+  right: 10px;
   }
