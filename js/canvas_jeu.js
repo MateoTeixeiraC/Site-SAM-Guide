@@ -1,35 +1,60 @@
+// Fonction pour visualiser la zone de collision (optionnel, à des fins de débogage)
+function drawCollisionRadius() {
+  ctx.beginPath();
+  ctx.arc(joueur.x, joueur.y, joueur.collisionRadius, 0, 2 * Math.PI);
+  ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
+  ctx.stroke();
+}// Modification du code canvas_jeu.js
+
 const canvas = document.getElementById('jeuCanvas');
 const ctx = canvas.getContext('2d');
 
-// Configuration de la piste (forme plus réaliste avec lignes droites et virages)
+// Configuration de la piste (forme ovale)
 const piste = {
   centerX: canvas.width / 2,
   centerY: canvas.height / 2,
-  width: 400, // Largeur totale de la piste
-  height: 250, // Hauteur totale de la piste
-  trackWidth: 80, // Largeur de la piste elle-même
-  cornerRadius: 70, // Rayon des virages
+  outerRadiusX: 250,
+  outerRadiusY: 150,
+  innerRadiusX: 180,
+  innerRadiusY: 80,
   color: '#ff6b6b',
   borderColor: '#8ac926'
+};
+
+// Charger l'image du personnage et la préparer
+const personnageImg = new Image();
+personnageImg.src = '../img/personnage.png';
+let personnageImgRotated = null;
+
+// Fonction pour créer une version tournée de l'image
+personnageImg.onload = function() {
+  // Créer un canvas temporaire pour tourner l'image
+  const tempCanvas = document.createElement('canvas');
+  tempCanvas.width = personnageImg.width;
+  tempCanvas.height = personnageImg.height;
+  const tempCtx = tempCanvas.getContext('2d');
+  
+  // Tourner l'image de 180 degrés
+  tempCtx.translate(tempCanvas.width/2, tempCanvas.height/2);
+  tempCtx.rotate(Math.PI);
+  tempCtx.drawImage(personnageImg, -tempCanvas.width/2, -tempCanvas.height/2);
+  
+  // Créer une nouvelle image avec le résultat
+  personnageImgRotated = new Image();
+  personnageImgRotated.src = tempCanvas.toDataURL();
 };
 
 // Configuration du joueur
 const joueur = {
   x: canvas.width / 2,
-  y: canvas.height - 100,
-  radius: 20, // Augmentation de la taille pour une meilleure collision
+  y: canvas.height - 90,
+  width: 30, // Largeur de l'image
+  height: 30, // Hauteur de l'image
+  collisionRadius: 15, // Rayon de collision plus grand que l'image
   angle: Math.PI, // Commence en bas, orienté vers le haut
-  speed: 1, // Vitesse réduite
-  rotationSpeed: 0.04, // Vitesse de rotation ajustée
-  color: '#1982c4',
-  image: new Image()
-};
-
-// Charger l'image du personnage
-joueur.image.src = '../img/personnage.png';
-joueur.image.onload = function() {
-  // Lancer le jeu une fois l'image chargée
-  draw();
+  speed: 0.8, // Vitesse réduite (était 2)
+  rotationSpeed: 0.02, // Vitesse de rotation réduite (était 0.05)
+  color: '#1982c4'
 };
 
 // Variables de jeu
@@ -45,120 +70,56 @@ let crossedStartLine = false;
 // Sons
 const bipGauche = document.getElementById('bipGauche');
 const bipDroite = document.getElementById('bipDroite');
-const sonArrivee = document.getElementById('arrivee');
+const arriveeSound = document.getElementById('arrivee');
 
 // Fonction pour vérifier si un point est à l'intérieur de la piste
 function isInsidePiste(x, y) {
-  const centerX = piste.centerX;
-  const centerY = piste.centerY;
-  const halfWidth = piste.width / 2;
-  const halfHeight = piste.height / 2;
-  const trackWidth = piste.trackWidth;
-  const cornerRadius = piste.cornerRadius;
+  // Calculer la distance normalisée du centre de la piste
+  const dx = (x - piste.centerX) / piste.outerRadiusX;
+  const dy = (y - piste.centerY) / piste.outerRadiusY;
+  const outerDistance = dx * dx + dy * dy;
   
-  // Position relative au centre
-  const relX = Math.abs(x - centerX);
-  const relY = Math.abs(y - centerY);
+  const dxInner = (x - piste.centerX) / piste.innerRadiusX;
+  const dyInner = (y - piste.centerY) / piste.innerRadiusY;
+  const innerDistance = dxInner * dxInner + dyInner * dyInner;
   
-  // Vérifier si le point est en dehors des limites extérieures de la piste
-  if (relX > halfWidth || relY > halfHeight) {
-    return false;
-  }
-  
-  // Vérifier si le point est à l'intérieur des limites intérieures (zone blanche)
-  const innerLeft = halfWidth - trackWidth;
-  const innerTop = halfHeight - trackWidth;
-  
-  // Point dans la zone centrale rectangulaire ?
-  if (relX < innerLeft && relY < innerTop) {
-    return false;
-  }
-  
-  // Vérifier les coins intérieurs
-  if (relX > innerLeft && relY > innerTop) {
-    // Nous sommes dans une région de coin, vérifier si nous sommes dans le coin arrondi intérieur
-    const cornerCenterX = innerLeft;
-    const cornerCenterY = innerTop;
-    const distanceToCorner = Math.sqrt(Math.pow(relX - cornerCenterX, 2) + Math.pow(relY - cornerCenterY, 2));
-    const innerCornerRadius = Math.max(cornerRadius - trackWidth, 0);
-    
-    if (distanceToCorner < innerCornerRadius) {
-      return false;
-    }
-  }
-  
-  return true;
+  // À l'intérieur de l'ellipse extérieure et à l'extérieur de l'ellipse intérieure
+  return outerDistance <= 1 && innerDistance >= 1;
 }
 
-// Dessiner la piste d'athlétisme (forme plus réaliste avec lignes droites et virages)
+// Dessiner la piste d'athlétisme (forme ovale)
 function drawPiste() {
-  const x = piste.centerX - piste.width / 2;
-  const y = piste.centerY - piste.height / 2;
-  const w = piste.width;
-  const h = piste.height;
-  const r = piste.cornerRadius;
-  const tw = piste.trackWidth;
-  
-  // Dessiner la partie extérieure de la piste
-  ctx.fillStyle = piste.borderColor;
+  // Dessiner l'ellipse extérieure
   ctx.beginPath();
-  
-  // Coins arrondis extérieurs
-  ctx.arc(x + r, y + r, r, Math.PI, Math.PI * 1.5); // Coin supérieur gauche
-  ctx.arc(x + w - r, y + r, r, Math.PI * 1.5, 0); // Coin supérieur droit
-  ctx.arc(x + w - r, y + h - r, r, 0, Math.PI * 0.5); // Coin inférieur droit
-  ctx.arc(x + r, y + h - r, r, Math.PI * 0.5, Math.PI); // Coin inférieur gauche
-  
-  ctx.closePath();
+  ctx.ellipse(piste.centerX, piste.centerY, piste.outerRadiusX, piste.outerRadiusY, 0, 0, 2 * Math.PI);
+  ctx.fillStyle = piste.borderColor;
   ctx.fill();
   
-  // Dessiner la partie intérieure (vide) de la piste
-  ctx.fillStyle = '#fff';
+  // Découper l'ellipse intérieure
   ctx.beginPath();
-  
-  // Coins arrondis intérieurs
-  const xi = x + tw;
-  const yi = y + tw;
-  const wi = w - 2 * tw;
-  const hi = h - 2 * tw;
-  const ri = Math.max(r - tw, 0);
-  
-  ctx.arc(xi + ri, yi + ri, ri, Math.PI, Math.PI * 1.5); // Coin supérieur gauche
-  ctx.arc(xi + wi - ri, yi + ri, ri, Math.PI * 1.5, 0); // Coin supérieur droit
-  ctx.arc(xi + wi - ri, yi + hi - ri, ri, 0, Math.PI * 0.5); // Coin inférieur droit
-  ctx.arc(xi + ri, yi + hi - ri, ri, Math.PI * 0.5, Math.PI); // Coin inférieur gauche
-  
-  ctx.closePath();
+  ctx.ellipse(piste.centerX, piste.centerY, piste.innerRadiusX, piste.innerRadiusY, 0, 0, 2 * Math.PI);
+  ctx.fillStyle = '#fff';
   ctx.fill();
   
   // Dessiner la ligne de départ/arrivée
   ctx.beginPath();
-  ctx.moveTo(piste.centerX, piste.centerY + piste.height/2 - piste.trackWidth);
-  ctx.lineTo(piste.centerX, piste.centerY + piste.height/2);
+  ctx.moveTo(piste.centerX, piste.centerY + piste.innerRadiusY);
+  ctx.lineTo(piste.centerX, piste.centerY + piste.outerRadiusY);
   ctx.lineWidth = 3;
   ctx.strokeStyle = '#000';
   ctx.stroke();
 }
 
-// Dessiner le joueur avec une direction
+// Dessiner le joueur comme une image avec une rotation
 function drawJoueur() {
   ctx.save();
-  
-  // Translater et pivoter le contexte au centre de la position du joueur
   ctx.translate(joueur.x, joueur.y);
-  ctx.rotate(joueur.angle); // Rotation ajustée pour correspondre à l'image
+  ctx.rotate(joueur.angle);
   
-  // Dessiner l'image centrée
-  const imageWidth = joueur.radius * 2.5;
-  const imageHeight = joueur.radius * 2.5;
-  ctx.drawImage(joueur.image, -imageWidth/2, -imageHeight/2, imageWidth, imageHeight);
-  
-  // Option de débogage : dessiner le cercle de collision
-  if (false) { // Mettre à true pour voir la zone de collision
-    ctx.beginPath();
-    ctx.arc(0, 0, joueur.radius, 0, 2 * Math.PI);
-    ctx.strokeStyle = 'red';
-    ctx.stroke();
+  // Utiliser l'image tournée si elle est disponible, sinon utiliser l'image originale
+  const imgToDraw = personnageImgRotated || personnageImg;
+  if (imgToDraw.complete) {
+    ctx.drawImage(imgToDraw, -joueur.width/2, -joueur.height/2, joueur.width, joueur.height);
   }
   
   ctx.restore();
@@ -170,52 +131,44 @@ function checkProximity() {
   if (now - lastBipTime < bipCooldown) return;
   
   // Calculer le point devant le joueur (dans la direction qu'il regarde)
-  const lookAheadDistance = joueur.radius * 2;
+  const lookAheadDistance = joueur.collisionRadius * 3.5; // Distance à laquelle vérifier
   const lookAheadX = joueur.x + Math.cos(joueur.angle) * lookAheadDistance;
   const lookAheadY = joueur.y + Math.sin(joueur.angle) * lookAheadDistance;
   
-  // Points à gauche et à droite du joueur pour vérifier les bords
-  const leftAngle = joueur.angle - Math.PI/2;
-  const rightAngle = joueur.angle + Math.PI/2;
-  
-  const leftX = joueur.x + Math.cos(leftAngle) * joueur.radius * 1.2;
-  const leftY = joueur.y + Math.sin(leftAngle) * joueur.radius * 1.2;
-  
-  const rightX = joueur.x + Math.cos(rightAngle) * joueur.radius * 1.2;
-  const rightY = joueur.y + Math.sin(rightAngle) * joueur.radius * 1.2;
-  
   // Vérifier si le point devant est à l'intérieur de la piste
   if (!isInsidePiste(lookAheadX, lookAheadY)) {
-    // Si point devant est hors piste, vérifier de quel côté on doit tourner
+    // Déterminer si le bord est à gauche ou à droite du joueur
+    // Pour cela, calculons un point à gauche et à droite du joueur
+    const leftAngle = joueur.angle - Math.PI/2;
+    const rightAngle = joueur.angle + Math.PI/2;
+    
+    const leftX = joueur.x + Math.cos(leftAngle) * joueur.collisionRadius;
+    const leftY = joueur.y + Math.sin(leftAngle) * joueur.collisionRadius;
+    
+    const rightX = joueur.x + Math.cos(rightAngle) * joueur.collisionRadius;
+    const rightY = joueur.y + Math.sin(rightAngle) * joueur.collisionRadius;
+    
     const leftInside = isInsidePiste(leftX, leftY);
     const rightInside = isInsidePiste(rightX, rightY);
     
-    if (leftInside && !rightInside) {
-      // Tourner à gauche - bord extérieur à droite
-      bipDroite.play();
-    } else if (!leftInside && rightInside) {
-      // Tourner à droite - bord intérieur à gauche
+    if (!leftInside && rightInside) {
       bipGauche.play();
+    } else if (leftInside && !rightInside) {
+      bipDroite.play();
     } else {
-      // Les deux côtés sont problématiques ou aucun
-      // Choisir en fonction de la position sur la piste
-      const relX = joueur.x - piste.centerX;
-      const relY = joueur.y - piste.centerY;
+      // Si les deux sont dehors ou les deux sont dedans, utiliser la distance aux ellipses
+      const dxOuter = (lookAheadX - piste.centerX) / piste.outerRadiusX;
+      const dyOuter = (lookAheadY - piste.centerY) / piste.outerRadiusY;
+      const outerDistance = dxOuter * dxOuter + dyOuter * dyOuter;
       
-      if (Math.abs(relX) > Math.abs(relY)) {
-        // Plus proche des côtés gauche/droite de la piste
-        if (relX > 0) {
-          bipDroite.play(); // Trop à droite de la piste
-        } else {
-          bipGauche.play(); // Trop à gauche de la piste
-        }
-      } else {
-        // Plus proche du haut/bas de la piste
-        if (relY > 0) {
-          bipDroite.play(); // Trop en bas de la piste
-        } else {
-          bipGauche.play(); // Trop en haut de la piste
-        }
+      const dxInner = (lookAheadX - piste.centerX) / piste.innerRadiusX;
+      const dyInner = (lookAheadY - piste.centerY) / piste.innerRadiusY;
+      const innerDistance = dxInner * dxInner + dyInner * dyInner;
+      
+      if (outerDistance > 1) {
+        bipDroite.play(); // Bord extérieur
+      } else if (innerDistance < 1) {
+        bipGauche.play(); // Bord intérieur
       }
     }
     
@@ -225,18 +178,6 @@ function checkProximity() {
 
 // Vérifier si le joueur a complété un tour
 function checkLapCompletion() {
-  // Définir la zone de la ligne d'arrivée
-  const finishLineX = piste.centerX;
-  const finishLineTop = piste.centerY + piste.height/2 - piste.trackWidth;
-  const finishLineBottom = piste.centerY + piste.height/2;
-  const finishLineWidth = 5; // Zone de détection de la ligne
-  
-  // Vérifier si le joueur est sur la ligne d'arrivée
-  const onFinishLine = 
-    Math.abs(joueur.x - finishLineX) < finishLineWidth && 
-    joueur.y > finishLineTop - 5 && 
-    joueur.y < finishLineBottom + 5;
-  
   // Calculer la distance entre le joueur et la position de départ
   const distanceToStart = Math.sqrt(
     Math.pow(joueur.x - startPosition.x, 2) + 
@@ -244,31 +185,30 @@ function checkLapCompletion() {
   );
   
   // Vérifier si le joueur a traversé la ligne de départ/arrivée
-  if (onFinishLine && !crossedStartLine && distanceToStart > 100) {
+  const nearStartLine = Math.abs(joueur.x - piste.centerX) < 5 && 
+                        joueur.y > piste.centerY && 
+                        joueur.y < piste.centerY + piste.outerRadiusY;
+  
+  if (nearStartLine && !crossedStartLine && distanceToStart > 100) {
     crossedStartLine = true;
-    console.log("Traversé la ligne de départ!");
   }
   
   // Si le joueur revient près de la position de départ après avoir traversé la ligne
-  if (onFinishLine && crossedStartLine && distanceToStart < 30 && !tourComplet) {
+  if (distanceToStart < 20 && crossedStartLine && !tourComplet) {
     tourComplet = true;
     lapTime = (Date.now() - startTime) / 1000; // Temps en secondes
     
     // Jouer le son d'arrivée
-    sonArrivee.play();
+    arriveeSound.play();
     
     // Afficher un message de félicitations
     ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    ctx.fillRect(piste.centerX - 150, piste.centerY - 75, 300, 150);
+    ctx.fillRect(piste.centerX - 150, piste.centerY - 50, 300, 100);
     ctx.fillStyle = '#fff';
-    ctx.font = 'bold 22px Arial';
+    ctx.font = '20px Arial';
     ctx.textAlign = 'center';
-    ctx.fillText('FÉLICITATIONS !', piste.centerX, piste.centerY - 35);
-    ctx.font = '18px Arial';
-    ctx.fillText('Tour complet !', piste.centerX, piste.centerY);
-    ctx.fillText(`Temps: ${lapTime.toFixed(2)} secondes`, piste.centerX, piste.centerY + 30);
-    ctx.font = '14px Arial';
-    ctx.fillText('Appuyez sur Espace pour recommencer', piste.centerX, piste.centerY + 60);
+    ctx.fillText('Tour complet !', piste.centerX, piste.centerY - 15);
+    ctx.fillText(`Temps: ${lapTime.toFixed(2)} secondes`, piste.centerX, piste.centerY + 15);
   }
 }
 
@@ -302,7 +242,23 @@ function updatePosition() {
   }
   
   // Vérifier si la nouvelle position est valide (à l'intérieur de la piste)
-  if (isInsidePiste(newX, newY)) {
+  // On utilise le rayon de collision pour vérifier
+  // Vérifier plusieurs points autour du joueur pour une meilleure détection de collision
+  const angleStep = Math.PI / 4; // 8 points autour du joueur
+  let validPosition = true;
+  
+  for (let i = 0; i < 8; i++) {
+    const checkAngle = i * angleStep;
+    const checkX = newX + Math.cos(checkAngle) * joueur.collisionRadius;
+    const checkY = newY + Math.sin(checkAngle) * joueur.collisionRadius;
+    
+    if (!isInsidePiste(checkX, checkY)) {
+      validPosition = false;
+      break;
+    }
+  }
+  
+  if (validPosition) {
     joueur.x = newX;
     joueur.y = newY;
   }
@@ -315,7 +271,11 @@ function draw() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   
   drawPiste();
-  drawJoueur();
+  
+  // Dessiner le joueur si au moins une des images est chargée
+  if (personnageImg.complete || (personnageImgRotated && personnageImgRotated.complete)) {
+    drawJoueur();
+  }
   
   // Si le tour n'est pas encore complet, continuer à mettre à jour
   if (!tourComplet) {
@@ -334,28 +294,9 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-// Ajouter fonction pour réinitialiser le jeu
-function resetGame() {
-  joueur.x = canvas.width / 2;
-  joueur.y = canvas.height - 100;
-  joueur.angle = Math.PI;
-  
-  startTime = null;
-  lapTime = null;
-  tourComplet = false;
-  crossedStartLine = false;
-  startPosition = { x: joueur.x, y: joueur.y };
-}
-
 // Gestion des événements clavier
 document.addEventListener('keydown', (e) => {
   keysPressed[e.key] = true;
-  
-  // Réinitialiser le jeu quand on appuie sur Espace après avoir complété un tour
-  if (e.key === ' ' && tourComplet) {
-    resetGame();
-  }
-  
   e.preventDefault();
 });
 
