@@ -166,7 +166,7 @@ body {
 /*Section 1*/
 .intro-section {
   background-color: #A8D4E4;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 40px 0;
 }
