@@ -383,10 +383,261 @@ body {
   }
   
   .img-anr{
-    margin-bottom: 30px;
+    margin-bottom: 25px;
     }
 }
 
 .img-anr{
-  right: 10px;
+  right: 5px;
   }
+
+  /* Styles pour la carte interactive */
+        .france-map-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .map-wrapper {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            min-height: 600px;
+        }
+
+        .france-map {
+            width: 100%;
+            height: auto;
+            max-width: 600px;
+            max-height: 600px;
+            border-radius: 10px;
+            /* Pour garder le ratio carré */
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            object-position: center;
+            /* Centrage supplémentaire */
+            display: block;
+            margin: 0 auto;
+        }
+
+        /* Style pour simuler une carte en attendant votre PNG */
+        .france-outline {
+            width: 100%;
+            height: auto;
+            /* Pour garder le ratio carré */
+            aspect-ratio: 1 / 1;
+            max-width: 600px;
+            max-height: 600px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><path d="M200 150 L180 200 L160 280 L140 350 L150 420 L180 480 L220 520 L280 540 L350 545 L420 540 L480 520 L540 480 L580 440 L600 380 L620 320 L610 260 L590 200 L560 150 L520 120 L480 100 L420 90 L360 95 L300 100 L250 120 Z" fill="%23e8f4f8" stroke="%23ddd" stroke-width="2"/></svg>') no-repeat center;
+            background-size: contain;
+            position: relative;
+            /* Centrage supplémentaire */
+            margin: 0 auto;
+            display: block;
+        }
+
+        .region-marker {
+            position: absolute;
+            width: 60px;
+            height: 60px;
+            background: #4a90e2;
+            border: 3px solid white;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 12px;
+            text-align: center;
+            text-decoration: none; /* Pour les liens */
+            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+            z-index: 100;
+        }
+
+        .region-marker:hover {
+            transform: scale(1.15);
+            background: #2c5aa0;
+            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6);
+        }
+
+        .region-marker::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: rgba(74, 144, 226, 0.3);
+            animation: pulse 2s infinite;
+            z-index: -1;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.4);
+                opacity: 0;
+            }
+        }
+
+        /* Positionnement des marqueurs sur la carte - MODIFIEZ CES VALEURS */
+        .region-marker[data-region="normandie"] {
+            top: 22%;     /* Changez ce pourcentage pour monter/descendre */
+            left: 33%;    /* Changez ce pourcentage pour aller à gauche/droite */
+        }
+
+        .region-marker[data-region="paris"] {
+            top: 25%;     /* Par exemple: 35% pour descendre */
+            left: 50%;    /* Par exemple: 45% pour aller à gauche */
+        }
+
+        .region-marker[data-region="grenoble"] {
+            top: 62%;     /* Par exemple: 50% pour remonter */
+            left: 70%;    /* Par exemple: 65% pour aller à droite */
+        }
+
+        .info-popup {
+            position: absolute;
+            background: white;
+            border-radius: 15px;
+            padding: 1.5rem;
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            max-width: 320px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 1000;
+            border: 2px solid #4a90e2;
+            transform: translateY(10px);
+        }
+
+        .info-popup.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .info-popup::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 10px solid #4a90e2;
+        }
+
+        .info-popup h4 {
+            color: #4a90e2;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-popup p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.4;
+            font-weight: 600;
+            color: #333;
+        }
+
+        .info-popup ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .info-popup li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid #eee;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 8px;
+        }
+
+        .info-popup li:last-child {
+            border-bottom: none;
+        }
+
+        .info-popup strong {
+            color: #4a90e2;
+        }
+
+        @media (max-width: 768px) {
+
+          .region-marker[data-region="normandie"] {
+            top: 33%;     /* Changez ce pourcentage pour monter/descendre */
+            left: 32%;    /* Changez ce pourcentage pour aller à gauche/droite */
+        }
+
+        .region-marker[data-region="paris"] {
+            top: 34%;     /* Par exemple: 35% pour descendre */
+            left: 50%;    /* Par exemple: 45% pour aller à gauche */
+        }
+
+        .region-marker[data-region="grenoble"] {
+            top: 56%;     /* Par exemple: 50% pour remonter */
+            left: 70%;    /* Par exemple: 65% pour aller à droite */
+        }
+        
+            .france-map-container {
+                padding: 1rem;
+            }
+            
+            .info-popup {
+                max-width: 280px;
+                padding: 1rem;
+            }
+
+            .region-marker {
+                width: 50px;
+                height: 50px;
+                font-size: 10px;
+            }
+
+            h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Instructions pour remplacer par votre PNG */
+        .png-instructions {
+            background: #fff3cd;
+            border: 1px solid #ffeaa7;
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            color: #856404;
+        }
+
+        .png-instructions h4 {
+            color: #b45309;
+            margin-bottom: 0.5rem;
+        }
+
+        .png-instructions code {
+            background: #f8f9fa;
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+  

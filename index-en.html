@@ -56,7 +56,7 @@
       
             <!-- Image -->
             <div class="intro-img text-center">
-              <img src="img/samguide.jpg" alt="Illustration homme avec ceinture" class="img-fluid">
+              <img src="img/accueil/samguide.jpg" alt="Illustration homme avec ceinture" class="img-fluid">
             </div>
           </div>
       
@@ -100,37 +100,65 @@
 </div>
 
 <section class="container my-5">
-  <div class="row align-items-stretch" style="min-height: 400px;">
-    <!-- Bloc de texte à gauche -->
-    <div class="col-md-3 d-flex">
-      <div class="bg-light rounded p-4 shadow w-100 d-flex align-items-center justify-content-center">
-        <p class="fw-medium mb-0 text-start text-carousel">
-          The SAM-Guide project brings together several laboratories across France, each with a specific mission: sound spatialization in Paris, guidance in Rouen, interaction in Grenoble, design in Caen, etc. These complementary areas of expertise work hand in hand to build an accessible system, tested in the field and designed for real-world use.
-        </p></div>
-    </div>
-
-    <!-- Carrousel à droite -->
-<div class="col-md-9">
-  <div class="news-block shadow rounded overflow-hidden h-100">
-    <div id="carouselNews1" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3500">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="img/consortium/consortium1.jpg" class="w-100 d-block" alt="Actu 1">
+        <div class="text-center mb-4">
+            <h3 class="fw-bold">Our National Consortium</h3>
+            <p class="text-muted">Hover over the regions to discover our partners</p>
         </div>
-        <div class="carousel-item">
-          <img src="img/consortium/consortium2.jpg" class="w-100 d-block" alt="Actu 1">
+        
+        <div class="france-map-container">
+            <div class="map-wrapper">
+                <!-- Remplacez cette div par votre image PNG -->
+                <img src="img/accueil/carteFrance.png" class="france-map">
+                    <!-- Marqueurs des régions-->
+                    <div class="region-marker" data-region="normandie">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    
+                    <div class="region-marker" data-region="paris">
+                        <i class="fas fa-graduation-cap"></i>
+                    </div>
+                    
+                    <div class="region-marker" data-region="grenoble">
+                        <i class="fas fa-mountain"></i>
+                    </div>
+                </div>
+                
+                <!-- Popups d'information -->
+                <div id="popup-normandie" class="info-popup">
+                    <h4><i class="fas fa-university"></i> Normandy</h4>
+                    <p><strong>Universities of Caen and Rouen</strong></p>
+                    <ul>
+                        <li><i class="fas fa-bullseye"></i> <strong>Specialty:</strong> Guidance and navigation</li>
+                        <li><i class="fas fa-microscope"></i> <strong>Research:</strong> Ergonomic psychology</li>
+                        <li><i class="fas fa-tools"></i> <strong>Contribution:</strong> Interface design</li>
+                        <li><i class="fas fa-users"></i> <strong>Focus:</strong> User testing</li>
+                    </ul>
+                </div>
+                
+                <div id="popup-paris" class="info-popup">
+                    <h4><i class="fas fa-graduation-cap"></i> Paris</h4>
+                    <p><strong>ENS Paris-Saclay</strong></p>
+                    <ul>
+                        <li><i class="fas fa-music"></i> <strong>Specialty:</strong> ound spatialization</li>
+                        <li><i class="fas fa-microscope"></i> <strong>Research:</strong> Binaural audio</li>
+                        <li><i class="fas fa-tools"></i> <strong>Contribution:</strong> 3D audio algorithms</li>
+                        <li><i class="fas fa-ear"></i> <strong>Focus:</strong> Auditory perception</li>
+                    </ul>
+                </div>
+                
+                <div id="popup-grenoble" class="info-popup">
+                    <h4><i class="fas fa-mountain"></i> Grenoble</h4>
+                    <p><strong>Université Grenoble Alpes</strong></p>
+                    <ul>
+                        <li><i class="fas fa-laptop"></i> <strong>Specialty:</strong> Interactive systems</li>
+                        <li><i class="fas fa-microscope"></i> <strong>Research:</strong> Embedded computing</li>
+                        <li><i class="fas fa-tools"></i> <strong>Contribution:</strong> Hardware development</li>
+                        <li><i class="fas fa-robot"></i> <strong>Focus:</strong> Technological integration</li>
+                    </ul>
+                </div>
+            </div>
         </div>
-        <div class="carousel-item">
-          <img src="img/consortium/consortium3.jpg" class="w-100 d-block" alt="Actu 1">
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-
-  </div>
-</section>
+    </section>
 
 <!-- SECTION 4 - Bouton d'accès stylisé -->
 <div class="text-center">
@@ -162,11 +190,12 @@
       
         <!-- Logo en bas à droite -->
         <div class="position-relative">
-          <a href="https://anr.fr/" target="_blank"><img src="img/logo_anr.png" alt="Logo ANR" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;"></a>
+          <a href="https://anr.fr/" target="_blank"><img src="img/icons/logo_anr.png" alt="Logo ANR" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;"></a>
         </div>
       </footer>
       
     <script src="js/menu_burger.js"></script> 
+    <script src="js/carte_interactive.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 
 </body>
