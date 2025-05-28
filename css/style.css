@@ -503,8 +503,9 @@ body {
 /*Actualités*/
 
 .news-block img {
-  object-fit: cover;
-  max-height: 400px;
+  object-fit: contain;
+  max-height: 500px;
+  height: 500px;
 }
 
 .news-block p{
@@ -512,7 +513,7 @@ body {
 }
 
 .carousel-inner {
-  height: 400px;
+  height: 500px;
 }
 
 .carousel-item {
@@ -527,8 +528,13 @@ body {
 
 /* Media query pour mobile */
 @media (max-width: 768px) {
+  .news-block img {
+    max-height: 300px; /* Ajuste la hauteur de l'image pour mobile */
+    height: 300px; /* Assure que l'image a une hauteur fixe */
+    object-fit: cover; /* Couvre l'espace sans déformation */
+  }
   .carousel-inner {
-    height: 200px; /* ou une valeur adaptée à ton design mobile */
+    height: 300px; /* ou une valeur adaptée à ton design mobile */
   }
 
   .news-block p {

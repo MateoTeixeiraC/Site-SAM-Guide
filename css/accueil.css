@@ -444,8 +444,8 @@ body {
 
         .region-marker {
             position: absolute;
-            width: 60px;
-            height: 60px;
+            width: 50px;
+            height: 50px;
             background: #4a90e2;
             border: 3px solid white;
             border-radius: 50%;
@@ -492,14 +492,20 @@ body {
         }
 
         /* Positionnement des marqueurs sur la carte - MODIFIEZ CES VALEURS */
-        .region-marker[data-region="normandie"] {
-            top: 22%;     /* Changez ce pourcentage pour monter/descendre */
-            left: 33%;    /* Changez ce pourcentage pour aller à gauche/droite */
+        /* Positionnement des marqueurs - Rouen et Caen séparés */
+        .region-marker[data-region="rouen"] {
+            top: 15%;
+            left: 44%;
+        }
+
+        .region-marker[data-region="caen"] {
+            top: 18%;
+            left: 35%;
         }
 
         .region-marker[data-region="paris"] {
-            top: 25%;     /* Par exemple: 35% pour descendre */
-            left: 50%;    /* Par exemple: 45% pour aller à gauche */
+            top: 21%;     /* Par exemple: 35% pour descendre */
+            left: 51%;    /* Par exemple: 45% pour aller à gauche */
         }
 
         .region-marker[data-region="grenoble"] {
@@ -583,20 +589,25 @@ body {
         }
 
         @media (max-width: 768px) {
+        
+          .region-marker[data-region="rouen"] {
+                top: 29%;
+                left: 42%;
+            }
 
-          .region-marker[data-region="normandie"] {
-            top: 33%;     /* Changez ce pourcentage pour monter/descendre */
-            left: 32%;    /* Changez ce pourcentage pour aller à gauche/droite */
-        }
+            .region-marker[data-region="caen"] {
+                top: 31%;
+                left: 31%;
+            }
 
         .region-marker[data-region="paris"] {
-            top: 34%;     /* Par exemple: 35% pour descendre */
-            left: 50%;    /* Par exemple: 45% pour aller à gauche */
+            top: 33%;     /* Par exemple: 35% pour descendre */
+            left: 53%;    /* Par exemple: 45% pour aller à gauche */
         }
 
         .region-marker[data-region="grenoble"] {
-            top: 56%;     /* Par exemple: 50% pour remonter */
-            left: 70%;    /* Par exemple: 65% pour aller à droite */
+            top: 58%;     /* Par exemple: 50% pour remonter */
+            left: 75%;    /* Par exemple: 65% pour aller à droite */
         }
         
             .france-map-container {
@@ -609,35 +620,13 @@ body {
             }
 
             .region-marker {
-                width: 50px;
-                height: 50px;
+                width: 30px;
+                height: 30px;
                 font-size: 10px;
             }
 
             h3 {
                 font-size: 1.5rem;
             }
-        }
-
-        /* Instructions pour remplacer par votre PNG */
-        .png-instructions {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 2rem;
-            color: #856404;
-        }
-
-        .png-instructions h4 {
-            color: #b45309;
-            margin-bottom: 0.5rem;
-        }
-
-        .png-instructions code {
-            background: #f8f9fa;
-            padding: 2px 6px;
-            border-radius: 4px;
-            font-family: monospace;
         }
   

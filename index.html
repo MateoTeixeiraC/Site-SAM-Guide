@@ -108,10 +108,14 @@
             <div class="map-wrapper">
                 <!-- Remplacez cette div par votre image PNG -->
                 <img src="img/accueil/carteFrance.png" class="france-map">
-                    <!-- Marqueurs des régions-->
-                    <div class="region-marker" data-region="normandie">
-                        <i class="fas fa-university"></i>
-                    </div>
+                    <!-- Marqueurs des régions - Rouen et Caen séparés -->
+                <div class="region-marker" data-region="rouen">
+                    <i class="fas fa-university"></i>
+                </div>
+                
+                <div class="region-marker" data-region="caen">
+                    <i class="fas fa-graduation-cap"></i>
+                </div>
                     
                     <div class="region-marker" data-region="paris">
                         <i class="fas fa-graduation-cap"></i>
@@ -123,16 +127,29 @@
                 </div>
                 
                 <!-- Popups d'information -->
-                <div id="popup-normandie" class="info-popup">
-                    <h4><i class="fas fa-university"></i> Normandie</h4>
-                    <p><strong>Universités de Caen et Rouen</strong></p>
-                    <ul>
-                        <li><i class="fas fa-bullseye"></i> <strong>Spécialité :</strong> Guidage et navigation</li>
-                        <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Psychologie ergonomique</li>
-                        <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Design d'interfaces</li>
-                        <li><i class="fas fa-users"></i> <strong>Focus :</strong> Tests utilisateurs</li>
-                    </ul>
-                </div>
+            <div id="popup-rouen" class="info-popup">
+                <h4><i class="fas fa-university"></i> Rouen</h4>
+                <p><strong>Université de Rouen</strong></p>
+                <ul>
+                    <li><i class="fas fa-bullseye"></i> <strong>Spécialité :</strong> Navigation adaptée</li>
+                    <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Psychologie cognitive</li>
+                    <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Ergonomie interfaces</li>
+                    <li><i class="fas fa-users"></i> <strong>Focus :</strong> Expérience utilisateur</li>
+                    <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.univ-rouen.fr/" target="_blank">www.univ-rouen.fr</a></li>
+                </ul>
+            </div>
+            
+            <div id="popup-caen" class="info-popup">
+                <h4><i class="fas fa-graduation-cap"></i> Caen</h4>
+                <p><strong>Université de Caen</strong></p>
+                <ul>
+                    <li><i class="fas fa-route"></i> <strong>Spécialité :</strong> Mobilité assistée</li>
+                    <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Sciences comportementales</li>
+                    <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Validation terrain</li>
+                    <li><i class="fas fa-wheelchair"></i> <strong>Focus :</strong> Accessibilité</li>
+                    <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.unicaen.fr/" target="_blank">www.unicaen.fr/</a></li>
+                </ul>
+            </div>
                 
                 <div id="popup-paris" class="info-popup">
                     <h4><i class="fas fa-graduation-cap"></i> Paris</h4>
@@ -142,6 +159,7 @@
                         <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Audio binaural</li>
                         <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Algorithmes audio 3D</li>
                         <li><i class="fas fa-ear"></i> <strong>Focus :</strong> Perception auditive</li>
+                        <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://ens-paris-saclay.fr/" target="_blank">www.ens-paris-saclay.fr</a></li>
                     </ul>
                 </div>
                 
@@ -153,6 +171,7 @@
                         <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Informatique embarquée</li>
                         <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Développement hardware</li>
                         <li><i class="fas fa-robot"></i> <strong>Focus :</strong> Intégration technologique</li>
+                        <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.univ-grenoble-alpes.fr/" target="_blank">www.univ-grenoble-alpes.fr</a></li>
                     </ul>
                 </div>
             </div>
