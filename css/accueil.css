@@ -316,7 +316,7 @@ body {
 .custom-site-footer {
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bolder;
-  padding-bottom: 20px;
+  padding-bottom: 40px;
   padding-right: 10px;
     background-color: #A8D4E4;
     position: relative;
@@ -392,241 +392,259 @@ body {
   }
 
   /* Styles pour la carte interactive */
-        .france-map-container {
-            position: relative;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-            background: white;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
+        /* Styles pour la carte interactive - VERSION CORRIGÉE */
+.france-map-container {
+    position: relative;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    /* RETIRÉ: overflow: hidden; */
+}
 
-        .map-wrapper {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 100%;
-            min-height: 600px;
-        }
+/* NOUVEAU: Conteneur pour la carte avec overflow hidden */
+.map-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    overflow: hidden; /* L'overflow hidden est maintenant ici */
+    border-radius: 10px; /* Pour garder l'arrondi de la carte */
+}
 
-        .france-map {
-            width: 100%;
-            height: auto;
-            max-width: 600px;
-            max-height: 600px;
-            border-radius: 10px;
-            /* Pour garder le ratio carré */
-            aspect-ratio: 1 / 1;
-            object-fit: cover;
-            object-position: center;
-            /* Centrage supplémentaire */
-            display: block;
-            margin: 0 auto;
-        }
+.france-map {
+    width: 100%;
+    height: auto;
+    max-width: 600px;
+    max-height: 600px;
+    border-radius: 10px;
+    object-position: center;
+    display: block;
+    margin: 0 auto;
+}
 
-        /* Style pour simuler une carte en attendant votre PNG */
-        .france-outline {
-            width: 100%;
-            height: auto;
-            /* Pour garder le ratio carré */
-            aspect-ratio: 1 / 1;
-            max-width: 600px;
-            max-height: 600px;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><path d="M200 150 L180 200 L160 280 L140 350 L150 420 L180 480 L220 520 L280 540 L350 545 L420 540 L480 520 L540 480 L580 440 L600 380 L620 320 L610 260 L590 200 L560 150 L520 120 L480 100 L420 90 L360 95 L300 100 L250 120 Z" fill="%23e8f4f8" stroke="%23ddd" stroke-width="2"/></svg>') no-repeat center;
-            background-size: contain;
-            position: relative;
-            /* Centrage supplémentaire */
-            margin: 0 auto;
-            display: block;
-        }
+/* Style pour simuler une carte en attendant votre PNG */
+.france-outline {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    max-width: 600px;
+    max-height: 600px;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 700"><path d="M200 150 L180 200 L160 280 L140 350 L150 420 L180 480 L220 520 L280 540 L350 545 L420 540 L480 520 L540 480 L580 440 L600 380 L620 320 L610 260 L590 200 L560 150 L520 120 L480 100 L420 90 L360 95 L300 100 L250 120 Z" fill="%23e8f4f8" stroke="%23ddd" stroke-width="2"/></svg>') no-repeat center;
+    background-size: contain;
+    position: relative;
+    margin: 0 auto;
+    display: block;
+}
 
-        .region-marker {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: #4a90e2;
-            border: 3px solid white;
-            border-radius: 50%;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 12px;
-            text-align: center;
-            text-decoration: none; /* Pour les liens */
-            box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
-            z-index: 100;
-        }
+.region-marker {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    background: #4a90e2;
+    border: 3px solid white;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    text-align: center;
+    text-decoration: none;
+    box-shadow: 0 4px 15px rgba(74, 144, 226, 0.4);
+    z-index: 100;
+}
 
-        .region-marker:hover {
-            transform: scale(1.15);
-            background: #2c5aa0;
-            box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6);
-        }
+.region-marker:hover {
+    transform: scale(1.15);
+    background: #2c5aa0;
+    box-shadow: 0 6px 25px rgba(74, 144, 226, 0.6);
+}
 
-        .region-marker::before {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            background: rgba(74, 144, 226, 0.3);
-            animation: pulse 2s infinite;
-            z-index: -1;
-        }
+.region-marker::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.3);
+    animation: pulse 2s infinite;
+    z-index: -1;
+}
 
-        @keyframes pulse {
-            0% {
-                transform: scale(1);
-                opacity: 1;
-            }
-            100% {
-                transform: scale(1.4);
-                opacity: 0;
-            }
-        }
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1.4);
+        opacity: 0;
+    }
+}
 
-        /* Positionnement des marqueurs sur la carte - MODIFIEZ CES VALEURS */
-        /* Positionnement des marqueurs - Rouen et Caen séparés */
-        .region-marker[data-region="rouen"] {
-            top: 15%;
-            left: 44%;
-        }
+/* Positionnement des marqueurs sur la carte */
+.region-marker[data-region="rouen"] {
+    top: 15%;
+    left: 44%;
+}
 
-        .region-marker[data-region="caen"] {
-            top: 18%;
-            left: 35%;
-        }
+.region-marker[data-region="caen"] {
+    top: 18%;
+    left: 35%;
+}
 
-        .region-marker[data-region="paris"] {
-            top: 21%;     /* Par exemple: 35% pour descendre */
-            left: 51%;    /* Par exemple: 45% pour aller à gauche */
-        }
+.region-marker[data-region="paris"] {
+    top: 21%;
+    left: 51%;
+}
 
-        .region-marker[data-region="grenoble"] {
-            top: 62%;     /* Par exemple: 50% pour remonter */
-            left: 70%;    /* Par exemple: 65% pour aller à droite */
-        }
+.region-marker[data-region="grenoble"] {
+    top: 62%;
+    left: 70%;
+}
 
-        .info-popup {
-            position: absolute;
-            background: white;
-            border-radius: 15px;
-            padding: 1.5rem;
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
-            max-width: 320px;
-            opacity: 0;
-            visibility: hidden;
-            transition: all 0.3s ease;
-            z-index: 1000;
-            border: 2px solid #4a90e2;
-            transform: translateY(10px);
-        }
+/* MODIFIÉ: Les popups restent dans le conteneur principal */
+.info-popup {
+    position: absolute;
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+    max-width: 320px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 1000; /* Z-index élevé pour passer au-dessus */
+    border: 2px solid #4a90e2;
+    transform: translateY(10px);
+}
 
-        .info-popup.show {
-            opacity: 1;
-            visibility: visible;
-            transform: translateY(0);
-        }
+.info-popup.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
 
-        .info-popup::before {
-            content: '';
-            position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 0;
-            height: 0;
-            border-left: 10px solid transparent;
-            border-right: 10px solid transparent;
-            border-top: 10px solid #4a90e2;
-        }
+.info-popup::before {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid #4a90e2;
+}
 
-        .info-popup h4 {
-            color: #4a90e2;
-            font-weight: 700;
-            margin-bottom: 1rem;
-            font-size: 1.3rem;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
+.info-popup h4 {
+    color: #4a90e2;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
 
-        .info-popup p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.4;
-            font-weight: 600;
-            color: #333;
-        }
+.info-popup p {
+    margin-bottom: 1rem;
+    font-size: 1rem;
+    line-height: 1.4;
+    font-weight: 600;
+    color: #333;
+}
 
-        .info-popup ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-        }
+.info-popup ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
 
-        .info-popup li {
-            padding: 0.5rem 0;
-            border-bottom: 1px solid #eee;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: flex-start;
-            gap: 8px;
-        }
+.info-popup li {
+    padding: 0.5rem 0;
+    border-bottom: 1px solid #eee;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
 
-        .info-popup li:last-child {
-            border-bottom: none;
-        }
+.info-popup li:last-child {
+    border-bottom: none;
+}
 
-        .info-popup strong {
-            color: #4a90e2;
-        }
+.info-popup strong {
+    color: #4a90e2;
+}
 
-        @media (max-width: 768px) {
-        
-          .region-marker[data-region="rouen"] {
-                top: 29%;
-                left: 42%;
-            }
+/* AJOUTÉ: Style pour éliminer l'espace blanc sous le footer */
+body {
+    margin: 0;
+    padding: 0;
+}
 
-            .region-marker[data-region="caen"] {
-                top: 31%;
-                left: 31%;
-            }
+html, body {
+    height: 100%;
+}
 
-        .region-marker[data-region="paris"] {
-            top: 33%;     /* Par exemple: 35% pour descendre */
-            left: 53%;    /* Par exemple: 45% pour aller à gauche */
-        }
+/* AJOUTÉ: Assurer que le footer colle au bas */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        .region-marker[data-region="grenoble"] {
-            top: 58%;     /* Par exemple: 50% pour remonter */
-            left: 75%;    /* Par exemple: 65% pour aller à droite */
-        }
-        
-            .france-map-container {
-                padding: 1rem;
-            }
-            
-            .info-popup {
-                max-width: 280px;
-                padding: 1rem;
-            }
+main {
+    flex: 1;
+}
 
-            .region-marker {
-                width: 30px;
-                height: 30px;
-                font-size: 10px;
-            }
+@media (max-width: 768px) {
+    .region-marker[data-region="rouen"] {
+        top: 15%;
+        left: 42%;
+    }
 
-            h3 {
-                font-size: 1.5rem;
-            }
-        }
+    .region-marker[data-region="caen"] {
+        top: 18%;
+        left: 31%;
+    }
+
+    .region-marker[data-region="paris"] {
+        top: 20%;
+        left: 53%;
+    }
+
+    .region-marker[data-region="grenoble"] {
+        top: 63%;
+        left: 75%;
+    }
+    
+    .france-map-container {
+        padding: 1rem;
+    }
+    
+    .info-popup {
+        max-width: 280px;
+        padding: 1rem;
+    }
+
+    .region-marker {
+        width: 30px;
+        height: 30px;
+        font-size: 10px;
+    }
+
+    h3 {
+        font-size: 1.5rem;
+    }
+}
   

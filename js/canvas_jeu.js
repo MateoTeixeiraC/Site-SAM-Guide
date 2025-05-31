@@ -4,8 +4,9 @@ function drawCollisionRadius() {
   ctx.arc(joueur.x, joueur.y, joueur.collisionRadius, 0, 2 * Math.PI);
   ctx.strokeStyle = 'rgba(255, 0, 0, 0.5)';
   ctx.stroke();
-}// Modification du code canvas_jeu.js
+}
 
+// Modification du code canvas_jeu.js
 const canvas = document.getElementById('jeuCanvas');
 const ctx = canvas.getContext('2d');
 
@@ -66,6 +67,11 @@ let startTime = null;
 let lapTime = null;
 let startPosition = { x: joueur.x, y: joueur.y };
 let crossedStartLine = false;
+let hasMovedAway = false; // Nouvelle variable pour s'assurer que le joueur s'est éloigné
+
+// Variables pour le message de félicitations
+let messageVisible = false;
+let messageStartTime = 0;
 
 // Sons
 const bipGauche = document.getElementById('bipGauche');
@@ -125,13 +131,27 @@ function drawJoueur() {
   ctx.restore();
 }
 
+// Fonction pour afficher le message de félicitations
+function drawMessage() {
+  if (messageVisible && Date.now() - messageStartTime < 3000) { // 3 secondes
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+    ctx.fillRect(piste.centerX - 150, piste.centerY - 50, 300, 100);
+    ctx.fillStyle = '#fff';
+    ctx.font = '20px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText('Tour complet !', piste.centerX, piste.centerY);
+  } else if (messageVisible) {
+    messageVisible = false; // Cacher le message après 3 secondes
+  }
+}
+
 // Vérifier la proximité des bords et émettre des signaux sonores
 function checkProximity() {
   const now = Date.now();
   if (now - lastBipTime < bipCooldown) return;
   
   // Calculer le point devant le joueur (dans la direction qu'il regarde)
-  const lookAheadDistance = joueur.collisionRadius * 3.5; // Distance à laquelle vérifier
+  const lookAheadDistance = joueur.collisionRadius * 4; // Distance à laquelle vérifier
   const lookAheadX = joueur.x + Math.cos(joueur.angle) * lookAheadDistance;
   const lookAheadY = joueur.y + Math.sin(joueur.angle) * lookAheadDistance;
   
@@ -184,31 +204,32 @@ function checkLapCompletion() {
     Math.pow(joueur.y - startPosition.y, 2)
   );
   
-  // Vérifier si le joueur a traversé la ligne de départ/arrivée
-  const nearStartLine = Math.abs(joueur.x - piste.centerX) < 5 && 
-                        joueur.y > piste.centerY && 
-                        joueur.y < piste.centerY + piste.outerRadiusY;
+  // Vérifier si le joueur s'est éloigné suffisamment de la position de départ
+  if (!hasMovedAway && distanceToStart > 50) {
+    hasMovedAway = true;
+  }
   
-  if (nearStartLine && !crossedStartLine && distanceToStart > 100) {
+  // Vérifier si le joueur traverse la ligne de départ/arrivée (zone plus large)
+  const nearStartLine = Math.abs(joueur.x - piste.centerX) < 15 && 
+                        joueur.y > piste.centerY + piste.innerRadiusY - 10 && 
+                        joueur.y < piste.centerY + piste.outerRadiusY + 10;
+  
+  // Marquer le passage de la ligne si le joueur s'est éloigné et traverse maintenant
+  if (nearStartLine && hasMovedAway && !crossedStartLine) {
     crossedStartLine = true;
   }
   
   // Si le joueur revient près de la position de départ après avoir traversé la ligne
-  if (distanceToStart < 20 && crossedStartLine && !tourComplet) {
+  if (distanceToStart < 30 && crossedStartLine && hasMovedAway && !tourComplet) {
     tourComplet = true;
     lapTime = (Date.now() - startTime) / 1000; // Temps en secondes
     
     // Jouer le son d'arrivée
     arriveeSound.play();
     
-    // Afficher un message de félicitations
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
-    ctx.fillRect(piste.centerX - 150, piste.centerY - 50, 300, 100);
-    ctx.fillStyle = '#fff';
-    ctx.font = '20px Arial';
-    ctx.textAlign = 'center';
-    ctx.fillText('Tour complet !', piste.centerX, piste.centerY - 15);
-    ctx.fillText(`Temps: ${lapTime.toFixed(2)} secondes`, piste.centerX, piste.centerY + 15);
+    // Activer l'affichage du message
+    messageVisible = true;
+    messageStartTime = Date.now();
   }
 }
 
@@ -283,6 +304,9 @@ function draw() {
     checkProximity();
     checkLapCompletion();
   }
+  
+  // Afficher le message de félicitations si nécessaire
+  drawMessage();
   
   // Afficher les instructions
   ctx.fillStyle = '#333';
