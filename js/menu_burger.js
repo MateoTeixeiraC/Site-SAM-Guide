@@ -21,7 +21,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 burger.style.right = "40px";
             }
         }
-        // Sur mobile, le burger est déjà en position fixed dans le CSS, donc rien à faire
     });
     
     // Gérer le redimensionnement de la fenêtre
@@ -40,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
     });
 });
 
-// Préserver le formatage des paragraphes justifiés
+// Formatage des paragraphes justifiés
 document.querySelectorAll('.text-justify').forEach(p => {
     p.innerHTML = p.innerHTML.replace(/ (\S+)\s*$/, '&nbsp;$1');
 });

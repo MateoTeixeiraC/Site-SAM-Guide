@@ -211,8 +211,8 @@ body {
   }
 
   .intro-group {
-    flex-direction: column; /* <- C’est ça qu’il faut changer */
-    align-items: center;     /* pour bien centrer */
+    flex-direction: column; 
+    align-items: center;  
     text-align: center;
     gap: 10px;
   }
@@ -309,9 +309,7 @@ body {
 }
 
 
-
-
-/*CSS Bootstrap custom*/
+/*CSS Bootstrap personnalisé*/
 
 .custom-site-footer {
   font-family: Arial, Helvetica, sans-serif;
@@ -346,7 +344,6 @@ body {
     background-color: #8EC1D8;
     transform: translateY(-2px);
   }
-  
   
 
 /* MOBILE */
@@ -392,7 +389,6 @@ body {
   }
 
   /* Styles pour la carte interactive */
-        /* Styles pour la carte interactive - VERSION CORRIGÉE */
 .france-map-container {
     position: relative;
     max-width: 800px;
@@ -401,18 +397,16 @@ body {
     background: white;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-    /* RETIRÉ: overflow: hidden; */
 }
 
-/* NOUVEAU: Conteneur pour la carte avec overflow hidden */
 .map-wrapper {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
     width: 100%;
-    overflow: hidden; /* L'overflow hidden est maintenant ici */
-    border-radius: 10px; /* Pour garder l'arrondi de la carte */
+    overflow: hidden; 
+    border-radius: 10px; 
 }
 
 .france-map {
@@ -426,7 +420,7 @@ body {
     margin: 0 auto;
 }
 
-/* Style pour simuler une carte en attendant votre PNG */
+/* Style pour simuler une carte en attendant le PNG */
 .france-outline {
     width: 100%;
     height: auto;
@@ -510,7 +504,6 @@ body {
     left: 70%;
 }
 
-/* MODIFIÉ: Les popups restent dans le conteneur principal */
 .info-popup {
     position: absolute;
     background: white;
@@ -586,23 +579,6 @@ body {
     color: #4a90e2;
 }
 
-/* AJOUTÉ: Style pour éliminer l'espace blanc sous le footer */
-body {
-    margin: 0;
-    padding: 0;
-}
-
-html, body {
-    height: 100%;
-}
-
-/* AJOUTÉ: Assurer que le footer colle au bas */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
 main {
     flex: 1;
 }
@@ -648,3 +624,10 @@ main {
     }
 }
   
+/* CACHER PAGE ANNONCES */
+
+/* .nav-links a[href*="annonces"],
+footer a[href*="annonces"] {
+    display: none !important;
+} */
+

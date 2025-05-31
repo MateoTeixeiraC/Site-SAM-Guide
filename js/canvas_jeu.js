@@ -53,8 +53,8 @@ const joueur = {
   height: 30, // Hauteur de l'image
   collisionRadius: 15, // Rayon de collision plus grand que l'image
   angle: Math.PI, // Commence en bas, orienté vers le haut
-  speed: 0.8, // Vitesse réduite (était 2)
-  rotationSpeed: 0.02, // Vitesse de rotation réduite (était 0.05)
+  speed: 0.8, // Vitesse 
+  rotationSpeed: 0.02, // Vitesse de rotation
   color: '#1982c4'
 };
 

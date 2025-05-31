@@ -142,12 +142,12 @@ body {
 
 /* Animation du bouton burger lorsqu'il est actif */
 .burger-menu.active .bar:nth-child(1) {
-  transform: translateY(12px) rotate(45deg); /* Descend plus avant la rotation */}
+  transform: translateY(12px) rotate(45deg); }
 .burger-menu.active .bar:nth-child(2) {
   opacity: 0;
 }
 .burger-menu.active .bar:nth-child(3) {
-  transform: translateY(-12px) rotate(-45deg); /* Monte plus avant la rotation */}
+  transform: translateY(-12px) rotate(-45deg);}
 
   /*Bandeau Titre*/
 .intro-banner {
@@ -182,13 +182,12 @@ body {
 
 .inner-container .custom-gap {
   display: flex;
-  flex-wrap: wrap; /* PAR DÉFAUT : wrap sur mobile */
+  flex-wrap: wrap;
   gap: 0.1rem; /* Espace horizontal */
   align-items: center;
   justify-content: center;
 }
 
-/* À partir du desktop (lg = 992px), forcer nowrap */
 @media (min-width: 992px) {
   .inner-container .custom-gap {
     flex-wrap: nowrap; /* Garde sur une seule ligne sur grand écran */
@@ -383,7 +382,6 @@ body {
   box-shadow: 0 1px 3px rgba(0,0,0,0.1);
 }
 
-/* Optionnel : un peu d'air autour en version mobile */
 @media (max-width: 576px) {
   .timeline-row {
     flex-direction: column;
@@ -414,9 +412,9 @@ body {
 }
 
 .application{
-  font-size: 0.95rem; /* réduit globalement la taille du texte */
-  width: 1600px;  /* limite la largeur même en grand écran */
-  margin: 0 auto;     /* centre horizontalement */
+  font-size: 0.95rem; 
+  width: 1600px; 
+  margin: 0 auto; 
   padding-left: 1rem;
   padding-right: 1rem;
 }
@@ -450,15 +448,15 @@ body {
 /*Consortium*/
 
 .card-img-top {
-  height: 250px;              /* hauteur fixe, ajustable selon ton besoin */
-  object-fit: cover;          /* croppe l’image pour remplir le cadre sans déformation */
-  width: 100%;                /* garantit que l’image remplit la largeur de la carte */
+  height: 250px;              
+  object-fit: cover;         
+  width: 100%;           
 }
 
 .card-img-solo {
-  height: 350px;              /* hauteur fixe, ajustable selon ton besoin */
-  object-fit: cover;          /* croppe l’image pour remplir le cadre sans déformation */
-  width: 100%;                /* garantit que l’image remplit la largeur de la carte */
+  height: 350px;          
+  object-fit: cover;        
+  width: 100%;           
 }
 
 .consortium-box {
@@ -517,7 +515,7 @@ body {
 }
 
 .carousel-item {
-  height: 100%; /* S'assure que chaque item remplit la hauteur */
+  height: 100%;
 }
 
 .carousel-item img {
@@ -529,12 +527,12 @@ body {
 /* Media query pour mobile */
 @media (max-width: 768px) {
   .news-block img {
-    max-height: 300px; /* Ajuste la hauteur de l'image pour mobile */
-    height: 300px; /* Assure que l'image a une hauteur fixe */
-    object-fit: cover; /* Couvre l'espace sans déformation */
+    max-height: 300px; 
+    height: 300px; 
+    object-fit: cover; 
   }
   .carousel-inner {
-    height: 300px; /* ou une valeur adaptée à ton design mobile */
+    height: 300px;
   }
 
   .news-block p {
@@ -594,7 +592,7 @@ body {
 }
 }
 
-/*CSS Bootstrap custom*/
+/*CSS Bootstrap personnalisé*/
 
 .custom-site-footer {
   font-weight: bolder;
@@ -663,7 +661,6 @@ body {
   right: 5px;
   }
 
-  /* CSS à ajouter à votre fichier style.css existant */
 
 .btn-show-more {
     background: none !important;
@@ -680,3 +677,10 @@ body {
 .btn-show-more:hover {
     color: #004499 !important;
 }
+
+/* CACHER PAGE ANNONCES */
+
+/* .nav-links a[href*="annonces"],
+footer a[href*="annonces"] {
+    display: none !important;
+} */

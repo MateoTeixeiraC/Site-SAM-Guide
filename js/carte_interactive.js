@@ -1,4 +1,4 @@
-// Interactive map functionality
+// Functionalités de la carte interactive de France
         const markers = document.querySelectorAll('.region-marker');
         const popups = document.querySelectorAll('.info-popup');
 
@@ -7,10 +7,10 @@
                 const regionName = this.getAttribute('data-region');
                 const popup = document.getElementById(`popup-${regionName}`);
                 
-                // Hide all other popups
+                // Cacher les autres popups
                 popups.forEach(p => p.classList.remove('show'));
                 
-                // Position and show the current popup
+                // Positionner et afficher le popup actuel
                 const rect = this.getBoundingClientRect();
                 const container = document.querySelector('.france-map-container').getBoundingClientRect();
                 
@@ -18,7 +18,7 @@
                 const leftPosition = rect.left - container.left + rect.width/2 - popupWidth/2;
                 const topPosition = rect.top - container.top - 20;
                 
-                // Ensure popup stays within container bounds
+                // S'assurer que le popup reste dans les limites du conteneur
                 const finalLeft = Math.max(10, Math.min(leftPosition, container.width - popupWidth - 10));
                 
                 popup.style.left = finalLeft + 'px';
@@ -40,7 +40,7 @@
             });
         });
 
-        // Keep popup open when hovering over it
+        // Garder les popups visibles lors du survol
         popups.forEach(popup => {
             popup.addEventListener('mouseenter', function() {
                 this.classList.add('show');
@@ -51,7 +51,7 @@
             });
         });
 
-        // Hide popups when clicking outside
+        // Cacher les popups lorsqu'on clique à l'extérieur
         document.addEventListener('click', function(e) {
             if (!e.target.closest('.region-marker') && !e.target.closest('.info-popup')) {
                 popups.forEach(p => p.classList.remove('show'));
