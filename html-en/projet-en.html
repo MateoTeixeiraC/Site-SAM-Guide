@@ -92,12 +92,53 @@
         </ul>
       </div>
   
-      <!-- Image -->
-      <div class="col-md-6 text-center">
-        <img src="../img/projet/stade1.JPG" alt="Test sur une piste d’athlétisme" class="img-fluid rounded shadow-sm">
-      </div>
+      <!-- Carrousel -->
+        <div class="col-md-6">
+            <div id="approacheCarousel" class="carousel slide carousel-consortium" data-bs-ride="carousel" style="border-radius: 12px; overflow: hidden;">  
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <!-- Slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../img/projet/stade1.JPG" alt="Test sur une piste d'athlétisme" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel text-dark bg-light">Track test</h5>
+                            <p class="bg-light">At the Sotteville stadium</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/projet/romeo1.jpg" alt="Tests laboratoire" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel">Tactile belt</h5>
+                            <p class="text-light">Front view</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/projet/romeo2.jpg" alt="Application terrain" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel">Tactile belt</h5>
+                            <p class="text-light">Rear view</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#approacheCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#approacheCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   
 
   <!-- Flèches d'étapes -->
@@ -122,11 +163,11 @@
     <div class="flex-grow-1 p-4">
       <h4 class="fw-bold">Tactile Belt</h4>
       <p class="text-justify">
-        The vibrating belt developed as part of SAM-Guide is a device worn around the waist, equipped with several vibrating motors positioned all around the body. Each vibration is used to transmit directional information: for example, a vibration on the right indicates a direction to the right. This device allows users to anticipate a turn or align themselves on a path, even in the absence of a visual reference. The use of the belt limits the hands and attention required, making it particularly useful in situations where safety is paramount (crossing streets, sports activities, etc.).
+        The vibrating belt is a device worn around the waist (see images above), equipped with several vibrating motors positioned all around the body. Each vibration is used to transmit directional information: for example, a vibration on the right indicates a direction to the right. This device allows users to anticipate a turn or align themselves on a path, even in the absence of a visual reference. The use of the belt limits the hands and attention required, making it particularly useful in situations where safety is paramount.
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/ceinture.jpg" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
+      <img src="../img/projet/ceinture1.jpg" alt="Tactile Belt" class="w-100 h-100 object-fit-cover">
     </div>
   </div>
 </div>
@@ -135,13 +176,13 @@
 <div class="col-md-12 mt-4">
   <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
     <div class="flex-grow-1 p-4">
-      <h4 class="fw-bold">Spatialized Sound</h4>
+      <h4 class="fw-bold">Spatialized Sounds</h4>
       <p class="text-justify">
-        Spatialized sound is another key component of the project. Using audio processing algorithms based on HRTF (Head-Related Transfer Function), the sounds generated by the device can be perceived as coming from a specific point in the space around the user. This allows, for example, to locate an object or an obstacle by sound. This device significantly improves orientation and perception of the environment. It also requires spatial precision, especially in complex or dynamic environments such as outdoor movements.
+        Spatialized sound is another key component of the project. Using audio processing algorithms based on HRTF (Head-Related Transfer Function), sounds generated by the device can be perceived as coming from a specific point in space around the user. This allows, for example, to locate an object or an obstacle by sound. This device significantly improves orientation and perception of the environment. It also requires spatial precision, especially in complex or dynamic environments such as outdoor movements.
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/casque.jpg" alt="Sons spatialisés" class="w-100 h-100 object-fit-cover">
+      <img src="../img/projet/casque.jpg" alt="Spatialized Sounds" class="w-100 h-100 object-fit-cover">
     </div>
   </div>
 </div>
@@ -152,11 +193,11 @@
     <div class="flex-grow-1 p-4">
       <h4 class="fw-bold">Capture Systems and Augmented Reality</h4>
       <p class="text-justify">
-        To design and test technologies, the project uses enriched digital environments that are adjusted in real-time using motion capture systems. This allows for the simulation of complex spaces in which users can be guided and oriented through sensory signals. Augmented reality allows for precise modeling of the environment, detection of interactions, and adaptation of signals to the user's movements and attention, in order to optimize usability and personalization.
+        To design and test the technologies, the project uses enriched digital environments that are adjusted in real-time using motion capture systems. This allows for the simulation of complex spaces in which users can be guided and oriented through sensory signals. Augmented reality allows for precise modeling of the environment, detection of interactions, and adaptation of signals to the user's movements and attention, in order to optimize usability and personalization.
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/capture.jpg" alt="Réalité augmentée" class="w-100 h-100 object-fit-cover">
+      <img src="../img/actualites/pint/capture.png" alt="Augmented Reality" class="w-100 h-100 object-fit-cover">
     </div>
     </div>
     </div>  
@@ -243,7 +284,7 @@
     <!-- Bloc 2 -->
     <div class="col-lg-4">
       <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
-        <img src="../img/projet/schemaglobal.jpg" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <img src="../img/projet/tir.JPG" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
         <div class="p-3 flex-grow-1 d-flex flex-column">
           <h5 class="fw-bold mb-2">Laser-Run</h5>
           <p class="fs-6 text-justify">
@@ -365,5 +406,6 @@
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>

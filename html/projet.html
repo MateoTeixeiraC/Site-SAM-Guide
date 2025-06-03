@@ -81,23 +81,64 @@
 <section class="scientific-approach my-5 px-3 px-md-5">
   <div class="inner-container">
     <div class="row g-0 align-items-center justify-content-center custom-gap">
-      <!-- Texte -->
-      <div class="col-md-6">
-        <h3 class="mb-3 fw-bold">Notre approche scientifique</h3>
-        <ul>
-          <li>Étudier la perception spatiale</li>
-          <li>Créer un langage sensoriel</li>
-          <li>Tester en réalité augmentée</li>
-          <li>Appliquer en conditions réelles</li>
-        </ul>
-      </div>
-  
-      <!-- Image -->
-      <div class="col-md-6 text-center">
-        <img src="../img/projet/stade1.JPG" alt="Test sur une piste d’athlétisme" class="img-fluid rounded shadow-sm">
-      </div>
+        <!-- Texte -->
+        <div class="col-md-6">
+            <h3 class="mb-3 fw-bold">Notre approche scientifique</h3>
+            <ul>
+                <li>Étudier la perception spatiale</li>
+                <li>Créer un langage sensoriel</li>
+                <li>Tester en réalité augmentée</li>
+                <li>Appliquer en conditions réelles</li>
+            </ul>
+        </div>
+
+        <!-- Carrousel -->
+        <div class="col-md-6">
+            <div id="approacheCarousel" class="carousel slide carousel-consortium" data-bs-ride="carousel" style="border-radius: 12px; overflow: hidden;">  
+                <div class="carousel-indicators">
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                    <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                </div>
+
+                <!-- Slides -->
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <img src="../img/projet/stade1.JPG" alt="Test sur une piste d'athlétisme" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel text-dark bg-light">Test sur piste</h5>
+                            <p class="bg-light">Au stade de Sotteville</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/projet/romeo1.jpg" alt="Tests laboratoire" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel">Ceinture tactile</h5>
+                            <p class="text-light">De devant</p>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <img src="../img/projet/romeo2.jpg" alt="Application terrain" class="d-block w-100">
+                        <div class="carousel-caption d-none d-md-block">
+                            <h5 class="text-carousel">Ceinture tactile</h5>
+                            <p class="text-light">De derrière</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contrôles -->
+                <button class="carousel-control-prev" type="button" data-bs-target="#approacheCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Précédent</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#approacheCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="visually-hidden">Suivant</span>
+                </button>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
   
 
   <!-- Flèches d'étapes -->
@@ -122,11 +163,11 @@
     <div class="flex-grow-1 p-4">
       <h4 class="fw-bold">Ceinture Tactile</h4>
       <p class="text-justify">
-        La ceinture vibratoire développée dans le cadre de SAM-Guide est un dispositif porté autour de la taille, équipé de plusieurs moteurs vibrants positionnés tout autour du corps. Chaque vibration est utilisée pour transmettre une information directionnelle : par exemple, une vibration à droite indique une direction vers la droite. Ce dispositif permet aux utilisateurs d’anticiper un virage ou de s’aligner sur un chemin, même en l’absence d’un repère visuel. L’usage de la ceinture limite les mains et l’attention mobilisées, ce qui la rend particulièrement utile dans des situations où la sécurité prime (franchissement de rues, activités sportives, etc.).
+        La ceinture vibratoire est un dispositif porté autour de la taille (voir images au dessus), équipé de plusieurs moteurs vibrants positionnés tout autour du corps. Chaque vibration est utilisée pour transmettre une information directionnelle : par exemple, une vibration à droite indique une direction vers la droite. Ce dispositif permet aux utilisateurs d’anticiper un virage ou de s’aligner sur un chemin, même en l’absence d’un repère visuel. L’usage de la ceinture limite les mains et l’attention mobilisées, ce qui la rend particulièrement utile dans des situations où la sécurité prime.
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/ceinture.jpg" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
+      <img src="../img/projet/ceinture1.jpg" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
     </div>
   </div>
 </div>
@@ -156,7 +197,7 @@
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/capture.jpg" alt="Réalité augmentée" class="w-100 h-100 object-fit-cover">
+      <img src="../img/actualites/pint/capture.png" alt="Réalité augmentée" class="w-100 h-100 object-fit-cover">
     </div>
     </div>
     </div>  
@@ -243,7 +284,7 @@ Les dispositifs développés dans SAM-Guide peuvent être intégrés à des parc
     <!-- Bloc 2 -->
     <div class="col-lg-4">
       <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
-        <img src="../img/projet/schemaglobal.jpg" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <img src="../img/projet/tir.JPG" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
         <div class="p-3 flex-grow-1 d-flex flex-column">
           <h5 class="fw-bold mb-2">Laser-Run</h5>
           <p class="fs-6 text-justify">
@@ -364,5 +405,6 @@ Les dispositifs développés dans SAM-Guide peuvent être intégrés à des parc
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
 </body>
 </html>
