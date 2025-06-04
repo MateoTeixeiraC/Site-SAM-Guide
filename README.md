@@ -15,4 +15,4 @@ footer a[href*="annonces"] {
 
 Il vous suffit de supprimer les /* de commentaire dans chaque fichier CSS pour mettre en effet et cacher les liens vers la page Annonces.
 
-- SI vous faites une modification sur un fichier HTML, n'oubliez pas de la faire aussi sur la version Anglaise du fichier.
+- Lorsque vous faites une modification sur un fichier HTML, n'oubliez pas de la faire aussi sur la version Anglaise du fichier.
