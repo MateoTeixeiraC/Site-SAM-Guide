@@ -24,7 +24,7 @@ const piste = {
 
 // Charger l'image du personnage et la préparer
 const personnageImg = new Image();
-personnageImg.src = '../img/jeu/personnage.png';
+personnageImg.src = '../img/jeu/personnage.webp';
 let personnageImgRotated = null;
 
 // Fonction pour créer une version tournée de l'image
