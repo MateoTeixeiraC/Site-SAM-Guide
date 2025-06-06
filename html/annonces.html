@@ -76,24 +76,63 @@
       </div>
     </div>
 
-    <hr class="my-5 mx-2 border-top border-dark opacity-50">
-  
     <!-- Bloc Candidater -->
     <div class="border rounded p-3 bg-white shadow-sm">
-      <h4 class="fw-bold mb-2">Candidater</h4>
-      <p class="mb-3 fs-5">
+      <h4 class="fs-5 fw-bold mb-2">Candidater</h4>
+      <p class="mb-3 fs-6">
         La candidature doit être envoyée par mail, en y incluant un CV détaillé, une lettre de motivation, les notes de licences L2 & L3, et le nom des personnes de recommandation. Un entretien (en visio) sera par la suite proposé dans le cas où le profil (ou l'une) de la candidature paraît correspondre aux attentes.
       </p>
-      <h4 class="fw-bold mb-1">Contacts</h4>
-      <p class="mb-0 fs-5">
-        <strong>Katerine Romeo</strong><br>
-        Fédération CNRS FR 3638 NormaSTIC – Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a><br>
-        <strong>Christian Graff</strong><br>
-              Université Grenoble-Alpes Laboratoire de Psychologie et Neurocognition LPNC (UMR 5105)
-              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a>
+      <h4 class="fs-5 fw-bold mb-1">Contacts</h4>
+      <p class="mb-0 fs-6">
+        <strong>Christian Graff</strong> - Université Grenoble-Alpes Laboratoire de Psychologie et Neurocognition LPNC (UMR 5105)<br>
+              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a><br>
+              Mail : <span id="email-grenoble"></span><br>
+            <strong>Katerine Romeo</strong> - Université de Rouen/LITIS - Fédération CNRS FR 3638 NormaSTIC<br>
+         Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a><br>
+         Mail : <span id="email-rouen"></span>
       </p>
     </div>
-  </section>
+
+     <hr class="my-5 mx-2 border-top border-dark opacity-50">
+
+  <h3 class="mb-4 fw-bold text-center">Appel à participants</h3>
+  <div class="row gy-4">
+
+    <!-- Bloc 1 -->
+<div class="col-md-12">
+  <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
+    <div class="flex-grow-1 p-4">
+      <h4 class="fw-bold">Participation aux expérimentations</h4>
+      <p class="text-justify">
+Nous recherchons des personnes non-voyantes et voyantes pour tester les dispositifs de navigation du projet SAM-Guide.
+Les tests sont organisés dans différents laboratoires partenaires.
+<br>Durée : 1h à 2h — 🎯 Objectif : tester la navigation assistée.Lieux : Grenoble, Rouen, Caen
+<br> Intéressé(e) ? Contactez-nous via les informations de la page contact.</p>
+    </div>
+    <div class="w-100 w-md-auto img-technologie">
+      <img src="../img/tir.webp" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+</div>
+
+<!-- Bloc 2 -->
+<div class="col-md-12">
+  <div class="d-md-flex align-items-stretch bg-light rounded shadow-sm overflow-hidden" style="min-height: 200px;">
+    <div class="flex-grow-1 p-4">
+      <h4 class="fw-bold">Contribution à la base de données vidéo</h4>
+      <p class="text-justify">
+Dans le cadre des recherches de Wenqi Luo, nous cherchons à constituer une base de vidéos utiles à l'entraînement de nos modèles.
+Vous pouvez envoyer des séquences ou des liens via notre formulaire.
+<br> Format attendu : vidéos simples de mouvements ou scènes de navigation. [Lien vers le dépôt ou formulaire]</p>
+    </div>
+    <div class="w-100 w-md-auto img-technologie">
+      <img src="../img/projet/stade1.webp" alt="Ceinture Tactile" class="w-100 h-100 object-fit-cover">
+    </div>
+  </div>
+</div>
+
+
+</section>
 
 </main>
       
@@ -113,7 +152,7 @@
           </div>
       
           <!-- Mentions légales -->
-          <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide</p>
+          <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide / Projet financé par l'ANR, Réf. : ANR-21-CE33-0011-01 – Interaction – Robotique</p>
         </div>
       
         <!-- Logo en bas à droite -->
@@ -123,5 +162,21 @@
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+
+    <!-- Script anti-bot pour créer les adresses email  -->
+<script>
+  function createEmail(user, domain, containerId) {
+    const email = `${user}@${domain}`;
+    const mailLink = `<a href="mailto:${email}">${email}</a>`;
+    document.getElementById(containerId).innerHTML = mailLink;
+  }
+
+  // Adresse 1 : katerine.romeo@univ-rouen.fr
+  createEmail("katerine.romeo", "univ-rouen.fr", "email-rouen");
+
+  // Adresse 2 : Christian.Graff@univ-grenoble-alpes.fr
+  createEmail("Christian.Graff", "univ-grenoble-alpes.fr", "email-grenoble");
+</script>
+
 </body>
 </html>

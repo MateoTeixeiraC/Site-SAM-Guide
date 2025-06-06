@@ -86,11 +86,12 @@
       </p>
       <h4 class="fw-bold mb-1">Contacts</h4>
       <p class="mb-0 fs-5">
-        <strong>Katerine Romeo</strong><br>
-        Fédération CNRS FR 3638 NormaSTIC – Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a><br>
-        <strong>Christian Graff</strong><br>
-              Université Grenoble-Alpes Laboratoire de Psychologie et Neurocognition LPNC (UMR 5105)
-              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a>
+        <strong>Christian Graff</strong> - University of Grenoble-Alpes Laboratoire de Psychologie et Neurocognition LPNC (UMR 5105)<br>
+              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a><br>
+              Mail : <span id="email-grenoble"></span><br>
+            <strong>Katerine Romeo</strong> - University of Rouen/LITIS - Fédération CNRS FR 3638 NormaSTIC<br>
+         Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a><br>
+         Mail : <span id="email-rouen"></span>
       </p>
     </div>
   </section>
@@ -113,7 +114,7 @@
           </div>
       
           <!-- Mentions légales -->
-          <p class="custom-mention text-muted small mb-0">&copy; All Rights Reserved – SAM-Guide</p>
+          <p class="custom-mention text-muted small mb-0">&copy; All Rights Reserved – SAM-Guide / Project financed by the ANR, Réf. : ANR-21-CE33-0011-01 – Interaction – Robotics</p>
         </div>
       
         <!-- Logo en bas à droite -->
@@ -123,5 +124,21 @@
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+    
+    <!-- Script anti-bot pour créer les adresses email  -->
+<script>
+  function createEmail(user, domain, containerId) {
+    const email = `${user}@${domain}`;
+    const mailLink = `<a href="mailto:${email}">${email}</a>`;
+    document.getElementById(containerId).innerHTML = mailLink;
+  }
+
+  // Adresse 1 : katerine.romeo@univ-rouen.fr
+  createEmail("katerine.romeo", "univ-rouen.fr", "email-rouen");
+
+  // Adresse 2 : Christian.Graff@univ-grenoble-alpes.fr
+  createEmail("Christian.Graff", "univ-grenoble-alpes.fr", "email-grenoble");
+</script>
+
 </body>
 </html>

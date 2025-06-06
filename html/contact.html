@@ -49,12 +49,14 @@
             <li class="mb-3 ">
               <strong>Christian Graff</strong><br>
               Université Grenoble-Alpes Laboratoire de Psychologie et Neurocognition LPNC (UMR 5105)<br>
-              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a>
+              Linkedin : <a href="https://www.linkedin.com/in/christian-graff-8a4131105/" target="_blank">linkedin.com/in/christian-graff-8a4131105</a><br>
+              Mail : <span id="email-grenoble"></span>
             </li>
             <li>
               <strong>Katerine Romeo</strong><br>
               LITIS UR 4108 Université de Rouen Normandie Fédération CNRS FR 3638 NormaSTIC<br>
-              Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a>
+              Linkedin : <a href="https://linkedin.com/in/katerine-romeo-2592316" target="_blank">linkedin.com/in/katerine-romeo-2592316</a><br>
+              Mail : <span id="email-rouen"></span>
             </li>
           </ul>
         </div>
@@ -115,7 +117,7 @@
           </div>
       
           <!-- Mentions légales -->
-          <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide</p>
+          <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide / Projet financé par l'ANR, Réf. : ANR-21-CE33-0011-01 – Interaction – Robotique</p>
         </div>
       
         <!-- Logo en bas à droite -->
@@ -125,5 +127,21 @@
       </footer>
       
     <script src="../js/menu_burger.js"></script> 
+    
+    <!-- Script anti-bot pour créer les adresses email  -->
+<script>
+  function createEmail(user, domain, containerId) {
+    const email = `${user}@${domain}`;
+    const mailLink = `<a href="mailto:${email}">${email}</a>`;
+    document.getElementById(containerId).innerHTML = mailLink;
+  }
+
+  // Adresse 1 : katerine.romeo@univ-rouen.fr
+  createEmail("katerine.romeo", "univ-rouen.fr", "email-rouen");
+
+  // Adresse 2 : Christian.Graff@univ-grenoble-alpes.fr
+  createEmail("Christian.Graff", "univ-grenoble-alpes.fr", "email-grenoble");
+</script>
+
 </body>
 </html>
