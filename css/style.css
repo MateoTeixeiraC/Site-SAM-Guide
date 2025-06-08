@@ -49,6 +49,23 @@ body {
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
 
+.logo-image {
+  max-height: 70px; /* Ajuste selon la taille souhaitée */
+  vertical-align: middle;
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
 .menu-toggle {
   background: #fff;
   border: none;
