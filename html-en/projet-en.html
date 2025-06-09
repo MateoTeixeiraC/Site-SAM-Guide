@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <div id="header-en-placeholder"></div>
 
       <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
@@ -20,13 +23,13 @@
       </section>
       
       <section class="intro-banner text-center py-3" style="background-color: transparent; border: solid; border-width: 1px;">
-        <h3 class="m-0 px-3 intro-consortium"><strong>S</strong>patial <strong>A</strong>wareness from <strong>M</strong>ultimodal <strong>Guidance</strong>&nbsp;</h3>
+        <h3 class="m-0 px-3 intro-consortium"><strong>S</strong>patial <strong>A</strong>wareness from <strong>M</strong>ultimodal <strong>Guidance</strong>&nbsp;</h3><span class="sr-only">The acronym SAM Guide comes from Spatial Awareness from Multimodal Guidance</span>
       </section>
 
-<main class="container my-5" style="max-width: 1600px; margin: 0 auto;">
+<main id="main-content" class="container my-5" style="max-width: 1600px; margin: 0 auto;">
 
-      
-      
+
+
       <section class="container mt-5 mb-2">
         <h3 class="mb-5 fw-bold text-center">Our Objectives</h3>
       
@@ -77,7 +80,8 @@
   
       <!-- Carrousel -->
         <div class="col-md-6">
-            <div id="approacheCarousel" class="carousel slide carousel-consortium" data-bs-ride="carousel" style="border-radius: 12px; overflow: hidden;"> <!-- IMPORTANT: Si vous souhaitez désactiver le défilement automatique, mettez data-bs-ride en "false" -->
+            <div id="approacheCarousel" class="carousel slide carousel-consortium" aria-label="Gallery of SAM-Guide technologies" data-bs-ride="carousel" style="border-radius: 12px; overflow: hidden;"> <!-- IMPORTANT: Si vous souhaitez désactiver le défilement automatique, mettez data-bs-ride en "false" -->
+              <span class="sr-only">Use the arrows to change slides or the buttons below</span>
                 <div class="carousel-indicators">
                     <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
                     <button type="button" data-bs-target="#approacheCarousel" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -87,21 +91,21 @@
                 <!-- Slides -->
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                        <img src="../img/projet/stade1.webp" alt="Test sur une piste d'athlétisme" class="d-block w-100">
+                        <img src="../img/projet/stade1.webp" alt="Searchers doing tests on a running track" class="d-block w-100">
                         <div class="carousel-caption d-none d-md-block">
                             <h4 class="text-carousel text-dark bg-light rounded">Track test</h4>
                             <p class="bg-light rounded">At the Sotteville stadium</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../img/projet/ceinture2.webp" alt="Tests laboratoire" class="d-block w-100">
+                        <img src="../img/projet/ceinture2.webp" alt="Front view of a tactile belt equipped with vibrating motors worn by a researcher" class="d-block w-100">
                         <div class="carousel-caption d-none d-md-block">
                             <h4 class="text-carousel">Tactile belt</h4>
                             <p class="text-light">Front view</p>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <img src="../img/projet/ceinture3.webp" alt="Application terrain" class="d-block w-100">
+                        <img src="../img/projet/ceinture3.webp" alt="Rear view of the tactile belt showing the connections and electronics" class="d-block w-100">
                         <div class="carousel-caption d-none d-md-block">
                             <h4 class="text-carousel">Tactile belt</h4>
                             <p class="text-light">Rear view</p>
@@ -110,11 +114,11 @@
                 </div>
 
                 <!-- Contrôles -->
-                <button class="carousel-control-prev" type="button" data-bs-target="#approacheCarousel" data-bs-slide="prev">
+                <button class="carousel-control-prev" aria-label="Previous image in the gallery" type="button" data-bs-target="#approacheCarousel" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
                 </button>
-                <button class="carousel-control-next" type="button" data-bs-target="#approacheCarousel" data-bs-slide="next">
+                <button class="carousel-control-next" aria-label="Next image in the gallery" type="button" data-bs-target="#approacheCarousel" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="visually-hidden">Suivant</span>
                 </button>
@@ -126,10 +130,10 @@
 
   <!-- Flèches d'étapes -->
   <div class="process-flow mt-5 d-flex flex-wrap justify-content-center gap-3 text-center">
-    <div class="step">Comprehend</div>
-    <div class="step">Model</div>
-    <div class="step">Experiment</div>
-    <div class="step">Transpose</div>
+    <div class="step">Comprehend<span class="sr-only"> - Step 1</span></div>
+    <div class="step">Model<span class="sr-only"> - Step 2</span></div>
+    <div class="step">Experiment<span class="sr-only"> - Step 3</span></div>
+    <div class="step">Transpose<span class="sr-only"> - Step 4</span></div>
   </div>
 </section>
 
@@ -167,7 +171,7 @@ Non-spatialized sounds, which are more neutral, serve to convey information such
 This complementarity enriches the navigation experience and facilitates adaptation to different environments, whether calm or dynamic.      </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/projet/casque.webp" alt="Spatialized Sounds" class="w-100 h-100 object-fit-cover">
+      <img src="../img/projet/casque.webp" alt="Woman wearing headphones, representing the Spatialized Sounds" class="w-100 h-100 object-fit-cover">
     </div>
   </div>
 </div>
@@ -182,7 +186,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
       </p>
     </div>
     <div class="w-100 w-md-auto img-technologie">
-      <img src="../img/actualites/pint/capture.webp" alt="Augmented Reality" class="w-100 h-100 object-fit-cover">
+      <img src="../img/actualites/pint/capture.webp" alt="Augmented Reality Capture" class="w-100 h-100 object-fit-cover">
     </div>
     </div>
     </div>  
@@ -198,7 +202,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
     
     <!-- 2021 -->
     <div class="timeline-row">
-      <div class="timeline-year">2021</div>
+      <div class="timeline-year">2021</div><span class="sr-only"> - Year</span></div>
       <div class="timeline-events">
         <div class="timeline-item">Launch of the SAM-Guide project, funded by ANR, for a duration of 48 months.</div>
         <div class="timeline-item">Creation of a multidisciplinary consortium, bringing together researchers in neuroscience, engineering, computer science, and ergonomics.</div>
@@ -208,7 +212,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
 
     <!-- 2022 -->
     <div class="timeline-row">
-      <div class="timeline-year">2022</div>
+      <div class="timeline-year">2022</div><span class="sr-only"> - Year</span></div>
       <div class="timeline-events">
         <div class="timeline-item">First face-to-face exchanges, with the kick-off meeting at École Polytechnique.</div>
         <div class="timeline-item">Theoretical modeling of the 3D beacon system, the basis of the spatial language developed in the project.</div>
@@ -218,7 +222,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
 
     <!-- 2023 -->
     <div class="timeline-row">
-      <div class="timeline-year">2023</div>
+      <div class="timeline-year">2023</div><span class="sr-only"> - Year</span></div>
       <div class="timeline-events">
         <div class="timeline-item">Development of the first prototypes of the tactile belt and spatialized sounds.</div>
         <div class="timeline-item">First user tests in AR environments, to evaluate perception and navigation.</div>
@@ -228,7 +232,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
 
     <!-- 2024 -->
     <div class="timeline-row">
-      <div class="timeline-year">2024</div>
+      <div class="timeline-year">2024</div><span class="sr-only"> - Year</span></div>
       <div class="timeline-events">
         <div class="timeline-item">Validation of combined scenarios: navigation, object localization, dynamic interaction.</div>
         <div class="timeline-item">Integration of new algorithms for line detection, obstacle avoidance, and data fusion.</div>
@@ -238,7 +242,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
 
     <!-- 2025 -->
     <div class="timeline-row">
-      <div class="timeline-year">2025</div>
+      <div class="timeline-year">2025</div><span class="sr-only"> - Year</span></div>
       <div class="timeline-events">
         <div class="timeline-item">Finalization of devices and protocols for use in real conditions.</div>
         <div class="timeline-item">Dissemination and scientific valorization through publications and open source.</div>
@@ -257,7 +261,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
     <!-- Bloc 1 -->
     <div class="col-lg-4">
       <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
-        <img src="../img/projet/illustrationmobilite.webp" alt="Entraînement mobilité" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <img src="../img/projet/illustrationmobilite.webp" alt="Illustration of Mobility Training" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
         <div class="p-3 flex-grow-1 d-flex flex-column">
           <h4 class="fw-bold mb-2">Mobility Training</h4>
           <p class="fs-6 text-justify">
@@ -269,7 +273,7 @@ This complementarity enriches the navigation experience and facilitates adaptati
     <!-- Bloc 2 -->
     <div class="col-lg-4">
       <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
-        <img src="../img/projet/tir.webp" alt="Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <img src="../img/projet/tir.webp" alt="Searcher using a pistol on a target, representing the Laser-Run" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
         <div class="p-3 flex-grow-1 d-flex flex-column">
           <h4 class="fw-bold mb-2">Laser-Run</h4>
           <p class="fs-6 text-justify">
@@ -282,7 +286,7 @@ Thanks to tactile feedback and sounds (both spatialized for orientation and non-
     <!-- Bloc 3 -->
     <div class="col-lg-4">
       <div class="shadow rounded overflow-hidden h-100 d-flex flex-column">
-        <img src="../img/projet/illustrationenville.webp" alt="Navigation urbaine" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
+        <img src="../img/projet/illustrationenville.webp" alt="Illustration of Assisted Urban Navigation" class="img-fluid w-100" style="object-fit: cover; height: 340px;">
         <div class="p-3 flex-grow-1 d-flex flex-column">
           <h4 class="fw-bold mb-2">Assisted Urban Navigation</h4>
           <p class="fs-6 text-justify">
@@ -310,53 +314,53 @@ Thanks to tactile feedback and sounds (both spatialized for orientation and non-
       Faugloire, E., Lejeune, L., Rivière, M.-A., & Mantel, B. (2022). <br>
       Spatiotemporal Influences on the Recognition of Two-dimensional Vibrotactile Patterns on the Abdomen. <br>
       <em>Journal of Experimental Psychology: Applied, 28</em>(3), 606–628. <br>
-      <a href="https://doi.org/10.1037/xap0000404" target="_blank">https://doi.org/10.1037/xap0000404</a>
+      <a href="https://doi.org/10.1037/xap0000404" target="_blank" rel="noopener noreferrer">https://doi.org/10.1037/xap0000404<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Morice, A., Mantel, B. & Faugloire, E. (2022). <br>
       Assistance vibrotactile à l’interception locomotrice de cibles mobiles : étude de faisabilité. <br>
       56e congrès de la Société d’Ergonomie de Langue Française. : 
-      <a href="https://hal.science/hal-03759604/" target="_blank">https://hal.science/hal-03759604/</a>
+      <a href="https://hal.science/hal-03759604/" target="_blank" rel="noopener noreferrer">https://hal.science/hal-03759604/<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Mantel, B. & Faugloire, E. (2022). <br>
       Conditions de l’incorporation d’un objet. Point de vue d’une approche incarnée de la perception <br>
       20e congrès de l’Association des Chercheurs en Activités Physiques et Sportives. : 
-      <a href="https://normandie-univ.hal.science/hal-04622055v1" target="_blank">https://normandie-univ.hal.science/hal-04622055v1</a>
+      <a href="https://normandie-univ.hal.science/hal-04622055v1" target="_blank" rel="noopener noreferrer">https://normandie-univ.hal.science/hal-04622055v1<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Mantel, B. & Faugloire, E. (2023). <br>
       Perspective écologique sur la cognition incarnée. <br>
       20e congrès de l’Association des Chercheurs en Activités Physiques et Sportives. : 
-      <a href="https://hal.science/hal-04626303v1" target="_blank">https://hal.science/hal-04626303v1</a>
+      <a href="https://hal.science/hal-04626303v1" target="_blank" rel="noopener noreferrer">https://hal.science/hal-04626303v1<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Fons, Huet, Pellerin, Gerber, Graff (2023) <br>
       Moving Towards and Reaching a 3-d Target by Embodied Guidance: Parsimonious vs Explicit Sound Metaphors : 
-      <a href="https://hal.univ-grenoble-alpes.fr/hal-04192144" target="_blank">https://hal.univ-grenoble-alpes.fr/hal-04192144</a>
+      <a href="https://hal.univ-grenoble-alpes.fr/hal-04192144" target="_blank" rel="noopener noreferrer">https://hal.univ-grenoble-alpes.fr/hal-04192144<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Fons, Huet, Pellerin, Graff (2024) <br>
       Using Fitts Law to Compare Sonification Guidance Methods for Target Reaching Without Vision : 
-      <a href="https://hal.univ-grenoble-alpes.fr/hal-04492351" target="_blank">https://hal.univ-grenoble-alpes.fr/hal-04492351</a>
+      <a href="https://hal.univ-grenoble-alpes.fr/hal-04492351" target="_blank" rel="noopener noreferrer">https://hal.univ-grenoble-alpes.fr/hal-04492351<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
 
     <li class="mt-3">
       Fons, Huet, Pellerin, Graff (2025) <br>
       Dissociate Dimensions to Improve Sound Metaphors Guiding the Hand Towards 3D Non-visible Targets : 
-      <a href="https://hal.science/hal-05034749v1" target="_blank">https://hal.science/hal-05034749v1</a>
+      <a href="https://hal.science/hal-05034749v1" target="_blank" rel="noopener noreferrer">https://hal.science/hal-05034749v1<span class="sr-only"> (opens in a new tab)</span></a>
     </li>
   </ul>
 
   <p class="mt-4 fw-bold align">
     Voir la liste : 
-    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank">
-      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011
+    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank" rel="noopener noreferrer">
+      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011<span class="sr-only"> (opens in a new tab)</span>
     </a>
   </p>
 
@@ -365,10 +369,10 @@ Thanks to tactile feedback and sounds (both spatialized for orientation and non-
   </p>
 
   <ul>
-    <li class="mt-3"> <a href="../pdf/Poster SOFPEL 2022.pdf" target="_blank" rel="noopener noreferrer"> Poster SOFPEL 2022</a></li>
-    <li class="mt-3"> <a href="../pdf/Poster Rencontre Jeunes Chercheurs.euses 2022.pdf" target="_blank" rel="noopener noreferrer"> Poster Rencontre Jeunes Chercheurs.euses 2022</a></li>
-    <li class="mt-3"> <a href="../pdf/Poster_journée_Scientifique_CerCog_2024.pdf" target="_blank" rel="noopener noreferrer"> Poster Journée Scientifique CerCog 2024</a></li>
-    <li class="mt-3"> <a href="../pdf/poster_adealo.pdf" target="_blank" rel="noopener noreferrer"> Poster ADEALO : Metrics for the grammar of deictic pointing</a></li>
+    <li class="mt-3"> <a href="../pdf/Poster SOFPEL 2022.pdf" target="_blank" rel="noopener noreferrer"> Poster SOFPEL 2022<span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li class="mt-3"> <a href="../pdf/Poster Rencontre Jeunes Chercheurs.euses 2022.pdf" target="_blank" rel="noopener noreferrer"> Poster Rencontre Jeunes Chercheurs.euses 2022<span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li class="mt-3"> <a href="../pdf/Poster_journée_Scientifique_CerCog_2024.pdf" target="_blank" rel="noopener noreferrer"> Poster Journée Scientifique CerCog 2024<span class="sr-only"> (opens in a new tab)</span></a></li>
+    <li class="mt-3"> <a href="../pdf/poster_adealo.pdf" target="_blank" rel="noopener noreferrer"> Poster ADEALO : Metrics for the grammar of deictic pointing<span class="sr-only"> (opens in a new tab)</span></a></li>
   </ul>
 </section>
 
@@ -379,5 +383,6 @@ Thanks to tactile feedback and sounds (both spatialized for orientation and non-
     <script src="../js/components-en.js"></script>
     <script src="../js/menu_burger.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/alert_tab-en.js"></script>
 </body>
 </html>

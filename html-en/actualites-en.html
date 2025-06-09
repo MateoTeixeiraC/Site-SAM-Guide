@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/logo/favicon_io/favicon-16x16.png" />
 </head>
 <body>
+
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     
   <div id="header-en-placeholder"></div>
 
@@ -20,7 +23,7 @@
         <h2 class="m-0">News</h2>
       </section>
 
-      <main>
+      <main id="main-content">
         <section class="container my-5" style="max-width: 1500px; margin: 0 auto;">
           <div class="text-center text-muted fs-3 mb-3" aria-hidden="true">
             More news coming soon…
@@ -31,23 +34,24 @@
             <!-- Actualité 1 -->
              <div class="col-md-6">
               <div class="news-block shadow rounded overflow-hidden h-100">
-                <div id="carouselNews2" class="carousel slide" data-bs-ride="carousel"> <!-- IMPORTANT: Si vous souhaitez désactiver le défilement automatique, mettez data-bs-ride en "false" -->
+                <div id="carouselNews2" class="carousel slide" data-bs-ride="carousel" aria-label="Images de la présentation Pint of Science 2025"> <!-- IMPORTANT: Si vous souhaitez désactiver le défilement automatique, mettez data-bs-ride en "false" -->
+                  <span class="sr-only">Use the arrows to change slides or the buttons below</span>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="../img/actualites/pint/presentation.webp" class="w-100 d-block" alt="Capture">
+                      <img src="../img/actualites/pint/presentation.webp" class="w-100 d-block" alt="Coline Fons presenting the SAM-Guide project at the Pint of Science festival">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/pint/pistolet.webp" class="w-100 d-block" alt="Pistol">
+                      <img src="../img/actualites/pint/pistolet.webp" class="w-100 d-block" alt="Coline Fons with the pistol on target">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/pint/schemabonhomme.webp" class="w-100 d-block" alt="Man Schema">
+                      <img src="../img/actualites/pint/schemabonhomme.webp" class="w-100 d-block" alt="Schema of the pointing on target">
                     </div>
                   </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews2" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews2" data-bs-slide="prev" aria-label="Previous slide">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews2" data-bs-slide="next">
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews2" data-bs-slide="next" aria-label="Next slide">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Suivant</span>
                   </button>
@@ -56,7 +60,7 @@
                   <p class="text-muted mb-2">20th of May 2025</p>
                   <h3 class="fw-bold text-center">Pint of Science 2025</h3>
                   <p class="">Christian Graff and Coline Fons from the GIPSA lab in Grenoble participated in the Pint of Science 2025 festival to discuss their progress on the target acquisition without vision for the Sam-Guide project.
-                    PDF of the presentation: <a href="../pdf/Pint of science Grenoble_v3.pdf" target="_blank">Open PDF file</a>
+                    PDF of the presentation: <a href="../pdf/Pint of science Grenoble_v3.pdf" target="_blank" rel="noopener noreferrer">Open PDF file<span class="sr-only"> (opens in a new tab)</span></a>
                   </p>
                 </div>
               </div>
@@ -66,29 +70,30 @@
             <!-- Actualité 2 -->
             <div class="col-md-6">
               <div class="news-block shadow rounded overflow-hidden h-100">
-                <div id="carouselNews1" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselNews1" class="carousel slide" data-bs-ride="carousel" aria-label="Photos de la réunion 2025 au Stade de Sotteville">
+                  <span class="sr-only">Use the arrows to change slides or the buttons below</span>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="../img/actualites/reunion/1.webp" class="w-100 d-block" alt="Réunion 1">
+                      <img src="../img/actualites/reunion/1.webp" class="w-100 d-block" alt="Team of researchers including Wenqi Luo testing on the track at Stade de Sotteville">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/reunion/2.webp" class="w-100 d-block" alt="Réunion 2">
+                      <img src="../img/actualites/reunion/2.webp" class="w-100 d-block" alt="Second photo of the researchers at Stade de Sotteville">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/reunion/3.webp" class="w-100 d-block" alt="Réunion 3">
+                      <img src="../img/actualites/reunion/3.webp" class="w-100 d-block" alt="Third photo of the researchers at Stade de Sotteville">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/reunion/4.webp" class="w-100 d-block" alt="Réunion 4">
+                      <img src="../img/actualites/reunion/4.webp" class="w-100 d-block" alt="First photo of the room meeting">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/reunion/5.webp" class="w-100 d-block" alt="Réunion 5">
+                      <img src="../img/actualites/reunion/5.webp" class="w-100 d-block" alt="Second photo of the room meeting">
                     </div>
                   </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews1" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews1" data-bs-slide="prev" aria-label="Previous slide">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews1" data-bs-slide="next">
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews1" data-bs-slide="next" aria-label="Next slide">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Suivant</span>
                   </button>
@@ -104,20 +109,21 @@
             <!-- Actualité 3 -->
             <div class="col-md-6">
               <div class="news-block shadow rounded overflow-hidden h-100">
-                <div id="carouselNews3" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselNews3" class="carousel slide" data-bs-ride="carousel" aria-label="Schémas du projet Voicestick">
+                  <span class="sr-only">Use the arrows to change slides or the buttons below</span>
                   <div class="carousel-inner">
                     <div class="carousel-item active">
-                      <img src="../img/actualites/voicestick/drone.webp" class="w-100 d-block" alt="Drone">
+                      <img src="../img/actualites/voicestick/drone.webp" class="w-100 d-block" alt="Technical diagram of the drone used in the Voicestick project for voice guidance">
                     </div>
                     <div class="carousel-item">
-                      <img src="../img/actualites/voicestick/img_voicestick.webp" class="w-100 d-block" alt="Voicestick">
+                      <img src="../img/actualites/voicestick/img_voicestick.webp" class="w-100 d-block" alt="Second diagram of the drone">
                     </div>
                   </div>
-                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews3" data-bs-slide="prev">
+                  <button class="carousel-control-prev" type="button" data-bs-target="#carouselNews3" data-bs-slide="prev" aria-label="Previous slide">
                     <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Précédent</span>
                   </button>
-                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews3" data-bs-slide="next">
+                  <button class="carousel-control-next" type="button" data-bs-target="#carouselNews3" data-bs-slide="next" aria-label="Next slide">
                     <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
                     <span class="visually-hidden">Suivant</span>
                   </button>
@@ -126,7 +132,7 @@
                   <p class="text-muted mb-2">2025</p>
                   <h3 class="fw-bold text-center">Annex Project: Voicestick</h3>
                   <p class="">The Voicestick project explores a revolutionary approach: guiding a drone by voice without seeing the target. This interdisciplinary research combines psychophysics, speech processing, and robotics.
-                    PDF explanation: <a href="../pdf/Voicestick.pdf" target="_blank">Open PDF file</a>
+                    PDF explanation: <a href="../pdf/Voicestick.pdf" target="_blank" rel="noopener noreferrer">Open PDF file<span class="sr-only"> (opens in a new tab)</span></a>
                   </p>
                 </div>
               </div>
@@ -135,7 +141,7 @@
             <!-- Actualité 4 -->
             <div class="col-md-6">
               <div class="news-block shadow rounded overflow-hidden h-100">
-                <img src="../img/sam_guide.webp" class="w-100 d-block" alt="SAM-Guide">
+                <img src="../img/sam_guide.webp" class="w-100 d-block" alt="Introduction picture of SAM-Guide">
                 <div class="px-4 py-3">
                   <p class="text-muted mb-2">2025</p>
                   <h3 class="fw-bold text-center">SAM-Guide News</h3>
@@ -157,6 +163,7 @@
     <script src="../js/menu_burger.js"></script> 
     <script src="../js/js_actualites.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="../js/alert_tab-en.js"></script>
 
 </body>
 </html>

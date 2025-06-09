@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,9 +13,12 @@
 </head>
 <body>
 
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <div id="header-placeholder"></div>
 
-<main>
+<main id="main-content">
 
       <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
         <h2 class="m-0">Jeu Interactif</h2>
@@ -26,7 +29,8 @@
         <section class="position-relative mb-4 px-3">
           <div class="game-box mx-auto p-4 text-center">
             <p class="mb-0 fw-bold responsive-text text-justify">
-              Voici une piste d’atléthisme. Vous contrôlez le personnage sur cette dernière grâce aux flèches du clavier. Le but du jeu est de faire un tour complet de la piste, vous aurez des signaux sonores lorsque vous vous approchez d’un bord et que vous allez devoir tourner, plus aïgu pour le bord gauche et plus grave pour le bord droit. Si vous ne présentez pas de handicap visuel, n’hésitez pas à fermer les yeux pour plus d’immersion. 
+              Voici une piste d’atléthisme. Vous contrôlez le personnage sur cette dernière grâce aux flèches du clavier. Le but du jeu est de faire un tour complet de la piste, vous aurez des signaux sonores lorsque vous vous approchez d’un bord et que vous allez devoir tourner, plus aïgu pour le bord gauche et plus grave pour le bord droit. Si vous ne présentez pas de handicap visuel, n’hésitez pas à fermer les yeux pour plus d’immersion.
+              <small>(ATTENTION : Pour les personnes utilisant la navigation par tabulation, il est conseillé d'utiliser Chrome, les autres navigateurs comme Mozilla rencontrent des problèmes)</small>
             </p>
           </div>
           <div></div>
@@ -55,5 +59,6 @@
       <script src="../js/components.js"></script>
     <script src="../js/menu_burger.js"></script>
     <script src="../js/canvas_jeu.js"></script>
+    <script src="../js/alert_tab.js"></script>
 </body>
 </html>

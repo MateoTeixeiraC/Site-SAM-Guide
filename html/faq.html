@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,6 +12,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../img/logo/favicon_io/favicon-16x16.png" />
 </head>
 <body>
+
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
     
   <div id="header-placeholder"></div>
 
@@ -20,7 +23,7 @@
         <h2 class="m-0">FAQ</h2>
       </section>
 
-<main class="container my-5" style="max-width: 1400px; margin: 0 auto;">
+<main id="main-content" class="container my-5" style="max-width: 1400px; margin: 0 auto;">
   <section>
     <div class="accordion" id="faqAccordion">
       
@@ -101,8 +104,8 @@
           <div class="accordion-body">
             Oui, plusieurs articles et communications ont été publiés, notamment sur l’assistance vibrotactile et la cognition incarnée. Plusieurs d'entre eux sont listés en bas de la page projet.
             Voir la liste : 
-    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank">
-      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011
+    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank" rel="noopener noreferrer">
+      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011<span class="sr-only"> (s'ouvre dans un nouvel onglet)</span>
     </a>
           </div>
         </div>
@@ -194,6 +197,7 @@
       <script src="../js/components.js"></script>
     <script src="../js/menu_burger.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/alert_tab.js"></script>
 
 </body>
 </html>

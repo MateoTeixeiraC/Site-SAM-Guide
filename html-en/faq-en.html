@@ -13,6 +13,9 @@
 </head>
 <body>
 
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <div id="header-en-placeholder"></div>
 
   <!-- Titre de page -->
@@ -20,7 +23,7 @@
         <h2 class="m-0">FAQ</h2>
       </section>
 
-<main class="container my-5" style="max-width: 1400px; margin: 0 auto;">
+<main id="main-content" class="container my-5" style="max-width: 1400px; margin: 0 auto;">
   <section>
     <div class="accordion" id="faqAccordion">
       
@@ -101,8 +104,8 @@
           <div class="accordion-body">
             Yes, several articles and communications have been published, notably on vibrotactile assistance and embodied cognition. Many of them have been listed on the bottom of the "Project" page.
             See the list : 
-    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank">
-      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011
+    <a href="https://anr.hal.science/search/index/?q=*&anrProjectReference_s=ANR-21-CE33-0011" target="_blank" rel="noopener noreferrer">
+      https://anr.hal.science/search/index/?q=%anrProjectReference_s:ANR-21-CE33-0011<span class="sr-only"> (opens in a new tab)</span>
     </a>
           </div>
         </div>
@@ -193,6 +196,7 @@
       <script src="../js/components-en.js"></script>
     <script src="../js/menu_burger.js"></script> 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../js/alert_tab-en.js"></script>
 
 </body>
 </html>

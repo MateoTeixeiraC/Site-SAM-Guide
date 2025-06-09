@@ -78,6 +78,9 @@ const bipGauche = document.getElementById('bipGauche');
 const bipDroite = document.getElementById('bipDroite');
 const arriveeSound = document.getElementById('arrivee');
 
+// Définir les touches de jeu UNIQUEMENT
+const gameKeys = ['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'];
+
 // Fonction pour vérifier si un point est à l'intérieur de la piste
 function isInsidePiste(x, y) {
   // Calculer la distance normalisée du centre de la piste
@@ -318,14 +321,47 @@ function draw() {
   requestAnimationFrame(draw);
 }
 
-// Gestion des événements clavier
-document.addEventListener('keydown', (e) => {
-  keysPressed[e.key] = true;
-  e.preventDefault();
+// Gestion des événements clavier pour préserver l'accessibilité
+window.addEventListener('keydown', function(e) {
+  // Liste EXHAUSTIVE des touches à TOUJOURS laisser passer pour l'accessibilité
+  const accessibilityKeys = [
+    'Tab', 'Escape', 'Enter', 'Space', 'Home', 'End', 'PageUp', 'PageDown',
+    'F1', 'F2', 'F3', 'F4', 'F5', 'F6', 'F7', 'F8', 'F9', 'F10', 'F11', 'F12',
+    'Insert', 'Delete', 'Backspace'
+  ];
+  
+  // Si c'est Tab ou une touche d'accessibilité OU une combinaison avec modificateur
+  if (e.key === 'Tab' || accessibilityKeys.includes(e.key) || e.altKey || e.ctrlKey || e.metaKey || (e.shiftKey && e.key !== 'Shift')) {
+    // Ne RIEN faire - laisser le comportement par défaut
+    return true;
+  }
+  
+  // Seulement pour les touches de jeu pures
+  if (gameKeys.includes(e.key)) {
+    keysPressed[e.key] = true;
+    e.preventDefault();
+    e.stopPropagation();
+  }
+}, false); // Pas de capture
+
+document.addEventListener('keyup', function(e) {
+  if (gameKeys.includes(e.key)) {
+    keysPressed[e.key] = false;
+  }
+}, false);
+
+// S'assurer que le canvas ne vole pas le focus
+canvas.tabIndex = -1; // Non focusable via Tab
+canvas.style.outline = 'none'; // Pas de outline si focus cliqué
+
+// Empêcher le canvas de capturer les événements
+canvas.addEventListener('keydown', function(e) {
+  e.stopPropagation(); // Empêcher la propagation depuis le canvas
 });
 
-document.addEventListener('keyup', (e) => {
-  keysPressed[e.key] = false;
+canvas.addEventListener('focus', function(e) {
+  // Si le canvas prend le focus, le rendre immédiatement
+  canvas.blur();
 });
 
 // Lancer le jeu

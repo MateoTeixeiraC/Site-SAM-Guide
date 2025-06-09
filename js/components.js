@@ -6,19 +6,19 @@ const headerHTML = `
     </div>
     <h1 class="site-title">
         <a href="../index.html">
-            <img src="../img/logo/logo_samguide.png" alt="SAM-Guide" class="logo-image">
+            <img src="../img/logo/logo_samguide.png" alt="Logo SAM-Guide - Retour à l'accueil" class="logo-image">
             <span class="visually-hidden">SAM-Guide</span>
         </a>
     </h1>
     <!-- Bouton Burger -->
-    <div class="burger-menu" id="burgerMenu">
-        <div class="bar"></div>
-        <div class="bar"></div>
-        <div class="bar"></div>
-    </div>
+        <button class="burger-menu" id="burgerMenu" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu de navigation">
+          <div class="bar"></div>
+          <div class="bar"></div>
+          <div class="bar"></div>
+        </button>
     
     <!-- Menu à afficher/masquer -->
-    <nav class="nav-links" id="navLinks">
+    <nav class="nav-links" id="navLinks" aria-label="Menu principal" aria-hidden="true">
         <a href="../index.html" data-page="index">Accueil</a>
         <a href="../html/projet.html" data-page="projet">Projet</a>
         <a href="../html/consortium.html" data-page="consortium">Consortium</a>
@@ -32,11 +32,13 @@ const headerHTML = `
 `;
 
 const footerHTML = `
-<footer class="custom-site-footer text-center text-lg-start mt-auto border-top pt-4">
+<footer class="custom-site-footer text-center text-lg-start mt-auto border-top pt-4" aria-label="Pied de page avec liens de navigation et informations légales">
     <div class="container">
         <!-- Liens -->
+        <nav aria-label="Plan du site">
+        <span class="sr-only">Navigation du pied de page</span>
         <div class="d-flex justify-content-center gap-5 mt-2 mb-3 flex-wrap flex-column flex-md-row">
-            <a href="#" class="text-decoration-none text-dark">Accueil</a>
+            <a href="../index.html" class="text-decoration-none text-dark">Accueil</a>
             <a href="../html/projet.html" class="text-decoration-none text-dark">Projet</a>
             <a href="../html/consortium.html" class="text-decoration-none text-dark">Consortium</a>
             <a href="../html/actualites.html" class="text-decoration-none text-dark">Actualités</a>
@@ -45,6 +47,7 @@ const footerHTML = `
             <a href="../html/contact.html" class="text-decoration-none text-dark">Contact</a>
             <a href="../html/jeu.html" class="text-decoration-none text-dark d-none d-md-inline">Jeu Interactif</a>
         </div>
+        </nav>
         
         <!-- Mentions légales -->
         <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide / Projet financé par l'ANR, Réf. : ANR-21-CE33-0011-01 – Interaction – Robotique</p>
@@ -52,8 +55,8 @@ const footerHTML = `
     
     <!-- Logo en bas à droite -->
     <div class="position-relative">
-        <a href="https://anr.fr/" target="_blank">
-            <img src="../img/icons/logo_anr.webp" alt="Logo ANR" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;">
+        <a href="https://anr.fr/" target="_blank" rel="noopener noreferrer">
+            <img src="../img/icons/logo_anr.webp" alt="Logo Agence Nationale de la Recherche - Organisme finançant le projet SAM-Guide" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;"><span class="sr-only"> (s'ouvre dans un nouvel onglet)</span>
         </a>
     </div>
 </footer>
@@ -117,7 +120,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Masquer les liens de la page actuelle (header uniquement)
     setTimeout(() => {
         hideCurrentPageLinks();
-        // Initialiser vos scripts
+        // Initialiser les scripts
         if (typeof initBurgerMenu === 'function') {
             initBurgerMenu();
         }

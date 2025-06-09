@@ -1,12 +1,20 @@
 document.addEventListener("DOMContentLoaded", function() {
     const burger = document.getElementById("burgerMenu");
     const nav = document.getElementById("navLinks");
-    
+   
     burger.addEventListener("click", function() {
         nav.classList.toggle("nav-active");
         burger.classList.toggle("active");
         burger.classList.toggle("burger-white");
         
+        // Gestion ARIA pour l'accessibilité
+        const isExpanded = burger.getAttribute('aria-expanded') === 'true';
+        burger.setAttribute('aria-expanded', !isExpanded);
+        nav.setAttribute('aria-hidden', isExpanded);
+        burger.setAttribute('aria-label', isExpanded ? 'Ouvrir le menu de navigation' : 'Fermer le menu de navigation');
+        
+        toggleMenu();
+       
         // Vérifier si nous sommes sur un écran de bureau (> 768px)
         if (window.innerWidth > 768) {
             if (nav.classList.contains("nav-active")) {
@@ -22,7 +30,7 @@ document.addEventListener("DOMContentLoaded", function() {
             }
         }
     });
-    
+   
     // Gérer le redimensionnement de la fenêtre
     window.addEventListener("resize", function() {
         // Si le menu est fermé, on s'assure que le burger est correctement positionné
@@ -37,7 +45,30 @@ document.addEventListener("DOMContentLoaded", function() {
             burger.style.position = "fixed";
         }
     });
+    
+    // Accessibilité initiale : menu fermé = liens non focusables
+    document.querySelectorAll('#navLinks a').forEach(link => {
+        link.setAttribute('tabindex', '-1');
+    });
 });
+
+// Fonction toggleMenu modifiée pour la cohérence
+function toggleMenu() {
+    const navLinks = document.getElementById('navLinks');
+    const isOpen = navLinks.classList.contains('nav-active');
+ 
+    if (isOpen) {
+        // Ouvrir : rendre focusables
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.removeAttribute('tabindex');
+        });
+    } else {
+        // Fermer : rendre non-focusables
+        navLinks.querySelectorAll('a').forEach(link => {
+            link.setAttribute('tabindex', '-1');
+        });
+    }
+}
 
 // Formatage des paragraphes justifiés
 document.querySelectorAll('.text-justify').forEach(p => {

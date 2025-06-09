@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,7 +12,12 @@
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo/favicon_io/favicon-16x16.png" />
 </head>
 <body>
-    
+    <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">
+        Aller au contenu principal
+        <span class="sr-only"> — Pour une meilleure expérience de navigation au clavier, nous recommandons fortement d'utiliser Google Chrome.</span>
+    </a>
+
     <header class="site-header"> <!-- Dans les autres page, le header/footer est intégré dynamiquement -->
 
         <div class="language-switch">
@@ -22,35 +27,35 @@
 
         <h1 class="site-title">
             <a href="index.html">
-                <img src="img/logo/logo_samguide.png" alt="SAM-Guide" class="logo-image">
+                <img src="img/logo/logo_samguide.png" alt="Logo SAM-Guide - Retour à l'accueil" class="logo-image">
                 <span class="visually-hidden">SAM-Guide</span>
             </a>
         </h1>
 
         <!-- Bouton Burger -->
-        <div class="burger-menu" id="burgerMenu">
+        <button class="burger-menu" id="burgerMenu" aria-expanded="false" aria-controls="navLinks" aria-label="Ouvrir le menu de navigation">
           <div class="bar"></div>
           <div class="bar"></div>
           <div class="bar"></div>
-        </div>
+        </button>
       
         <!-- Texte positionné librement -->
         <p class="burger-text">Découvrir notre projet</p>
       
         <!-- Menu à afficher/masquer -->
-        <nav class="nav-links" id="navLinks">
-          <a href="html/projet.html">Projet</a>
-          <a href="html/consortium.html">Consortium</a>
-          <a href="html/actualites.html">Actualités</a>
-          <a href="html/annonces.html">Annonces</a>
-          <a href="html/faq.html">FAQ</a>
-          <a href="html/contact.html">Contact</a>
-          <a href="html/jeu.html" class="d-none d-md-inline">Jeu Interactif</a>
-        </nav>
+          <nav class="nav-links" id="navLinks" aria-label="Menu principal" aria-hidden="true">
+            <a href="html/projet.html">Projet</a>
+            <a href="html/consortium.html">Consortium</a>
+            <a href="html/actualites.html">Actualités</a>
+            <a href="html/annonces.html">Annonces</a>
+            <a href="html/faq.html">FAQ</a>
+            <a href="html/contact.html">Contact</a>
+            <a href="html/jeu.html" class="d-none d-md-inline">Jeu Interactif</a>
+          </nav>
       </header>
 
       <!-- SECTION 1 - Présentation + Illustration -->
-      <section class="intro-section">
+      <section class="intro-section" aria-labelledby="intro-heading">
         <div class="inner-container">
           
           <div class="intro-group">
@@ -63,26 +68,27 @@
       
             <!-- Image -->
             <div class="intro-img text-center">
-              <img src="img/accueil/samguide.webp" alt="Illustration homme avec ceinture" class="img-fluid">
+              <img src="img/accueil/samguide.webp" alt="Personne non-voyante utilisant une ceinture haptique SAM-Guide pour la navigation assistée" class="img-fluid">
             </div>
           </div>
       
         </div>
       </section>
-      
-      
-<main class="container py-5" style="max-width: 1400px; margin: 0 auto;">
+
+      <main aria-label="Contenu principal de la page d'accueil SAM-Guide" id="main-content" class="container py-5" style="max-width: 1400px; margin: 0 auto;">
 
         <!-- SECTION 2 - Notre projet de Recherche -->
         <div class="text-center mb-5">
           <h3 class="fw-bold">Notre projet de Recherche</h3>
+          <span class="sr-only">Cette section présente les objectifs, la multimodalité et l'interdisciplinarité du projet SAM-Guide</span>
         </div>
       
         <!-- SECTION 3 - Objectifs -->
-<div class="row text-center mb-4 gx-4 gy-4">
+<div class="row text-center mb-4 gx-4 gy-4" aria-labelledby="objectives-section">
+    <span id="objectives-section" class="sr-only">Section présentant les trois piliers du projet SAM-Guide</span>
   <div class="col-md-4">
     <div class="bg-light p-4 shadow-sm h-100 text-justify">
-      <h3 class="fw-bold mt-3 mb-4">Objectifs</h4>
+      <h4 class="fw-bold mt-3 mb-4">Objectifs</h4>
       <p class="fw-medium fs-6">
         SAM-Guide vise à améliorer la qualité de vie des personnes qui présentent un handicap visuel en leur fournissant des outils technologiques leur permettant d’interagir avec leur environnement de façon autonome. Le projet repose sur <strong>trois axes fondamentaux</strong> : la navigation sans assistance humaine, l’atteinte d’objets dans l’espace proche ou éloigné, et la participation à des activités physiques telles que le laser-run. Chacune de ces dimensions répond à des besoins concrets exprimés par les usagers, en complémentarité avec les formations à la mobilité existantes.
       </p>
@@ -90,7 +96,7 @@
   </div>
   <div class="col-md-4">
     <div class="bg-light p-4 shadow-sm h-100 text-justify">
-      <h3 class="fw-bold mt-3 mb-4">Multimodalité</h4>
+      <h4 class="fw-bold mt-3 mb-4">Multimodalité</h4>
       <p class="fw-medium fs-6">
         En combinant les <strong>retours tactiles vibrants avec des sons directionnels (spatialisés) et des sons d’information (non-spatialisés)</strong>, SAM-Guide adopte une approche multimodale pour transmettre des repères dans l’espace.
 Cette complémentarité permet d’éviter la surcharge d’un seul sens, tout en facilitant la compréhension et l’apprentissage. Les sons spatialisés aident à localiser une direction ou un objet dans l’environnement, tandis que les sons non-spatialisés délivrent des messages simples et clairs (ex. : "objectif atteint", "stop"). Grâce à cette combinaison, l’utilisateur peut se déplacer plus facilement, adapter ses gestes en temps réel, et gagner en autonomie.
@@ -99,7 +105,7 @@ Cette complémentarité permet d’éviter la surcharge d’un seul sens, tout e
   </div>
   <div class="col-md-4">
     <div class="bg-light p-4 shadow-sm h-100 text-justify">
-      <h3 class="fw-bold mt-3 mb-4">Interdisciplinarité</h4>
+      <h4 class="fw-bold mt-3 mb-4">Interdisciplinarité</h4>
       <p class="fw-medium fs-6">
         Le projet repose sur une collaboration étroite entre plusieurs disciplines : <strong>neurosciences cognitives, informatique embarquée, mathématiques appliquées, psychologie ergonomique et ingénierie des systèmes</strong>. Réunies dans un consortium national (Université Grenoble Alpes, ENS Paris-Saclay, Université de Rouen et Université de Caen), ces expertises permettent d’aborder les défis techniques et humains de manière globale. L'interdisciplinarité garantit des solutions plus robustes, évolutives, et centrées sur les usages réels, en s’appuyant sur des tests utilisateurs, des scénarios immersifs, et des technologies validées scientifiquement.
       </p>      
@@ -107,81 +113,87 @@ Cette complémentarité permet d’éviter la surcharge d’un seul sens, tout e
   </div>
 </div>
 
-    <section class="container my-5">
-        <div class="text-center mb-4">
-            <h3 class="fw-bold">Notre Consortium National</h3>
-            <p class="text-muted">Survolez les régions pour découvrir nos partenaires</p>
-        </div>
-        
-        <div class="france-map-container">
-            <div class="map-wrapper">
-                <img src="img/accueil/carteFrance.webp" alt="Carte de France" class="france-map">
-                    <!-- Marqueurs des régions - Rouen et Caen séparés -->
-                <div class="region-marker" data-region="rouen">
-                    <i class="fas fa-university"></i>
-                </div>
-                
-                <div class="region-marker" data-region="caen">
-                    <i class="fas fa-graduation-cap"></i>
-                </div>
-                    
-                    <div class="region-marker" data-region="paris">
-                        <i class="fas fa-graduation-cap"></i>
-                    </div>
-                    
-                    <div class="region-marker" data-region="grenoble">
-                        <i class="fas fa-mountain"></i>
-                    </div>
-                </div>
-                
-                <!-- Popups d'information -->
-            <div id="popup-rouen" class="info-popup">
-                <h4><i class="fas fa-university"></i> Rouen</h4>
-                <p><strong>Université de Rouen</strong></p>
-                <ul>
-                    <li><i class="fas fa-bullseye"></i> <strong>Spécialité :</strong> Navigation adaptée</li>
-                    <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Psychologie cognitive</li>
-                    <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Ergonomie interfaces</li>
-                    <li><i class="fas fa-users"></i> <strong>Focus :</strong> Expérience utilisateur</li>
-                    <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.univ-rouen.fr/" target="_blank">www.univ-rouen.fr</a></li>
-                </ul>
-            </div>
+    <section class="container my-5" role="complementary" aria-labelledby="consortium-heading">
+    <div class="text-center mb-4">
+        <h3 id="consortium-heading" class="fw-bold">Notre Consortium National</h3>
+        <p class="text-muted">Survolez les régions pour découvrir nos partenaires</p>
+        <span class="sr-only">Utilisez la touche Tab pour naviguer entre les universités partenaires</span>
+    </div>
+    
+    <div class="france-map-container">
+        <div class="map-wrapper" role="img" aria-label="Carte de France avec 4 universités partenaires">
+            <img src="img/accueil/carteFrance.webp" alt="Carte interactive de France localisant 4 universités partenaires : Rouen en Normandie, Caen en Normandie, ENS Paris-Saclay en Île-de-France, et Grenoble Alpes en Auvergne-Rhône-Alpes" class="france-map">
             
-            <div id="popup-caen" class="info-popup">
-                <h4><i class="fas fa-graduation-cap"></i> Caen</h4>
+            <!-- Marqueurs accessibles -->
+            <button class="region-marker" data-region="rouen" aria-describedby="popup-rouen" tabindex="0">
+                <i class="fas fa-university" aria-hidden="true"></i>
+                <span class="sr-only">Université de Rouen - Appuyer pour voir les détails</span>
+            </button>
+            
+            <button class="region-marker" data-region="caen" aria-describedby="popup-caen" tabindex="0">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span class="sr-only">Université de Caen - Appuyer pour voir les détails</span>
+            </button>
+            
+            <button class="region-marker" data-region="paris" aria-describedby="popup-paris" tabindex="0">
+                <i class="fas fa-graduation-cap" aria-hidden="true"></i>
+                <span class="sr-only">ENS Paris-Saclay - Appuyer pour voir les détails</span>
+            </button>
+            
+            <button class="region-marker" data-region="grenoble" aria-describedby="popup-grenoble" tabindex="0">
+                <i class="fas fa-mountain" aria-hidden="true"></i>
+                <span class="sr-only">Université Grenoble Alpes - Appuyer pour voir les détails</span>
+            </button>
+        </div>
+
+                <!-- Popups d'information -->
+            <div id="popup-rouen" class="info-popup" role="tooltip" aria-live="polite">
+              <h4><i class="fas fa-university" aria-hidden="true"></i> Rouen</h4>
+              <p><strong>Université de Rouen</strong></p>
+              <ul>
+                  <li><i class="fas fa-bullseye" aria-hidden="true"></i> <strong>Spécialité :</strong> Navigation adaptée</li>
+                  <li><i class="fas fa-microscope" aria-hidden="true"></i> <strong>Recherche :</strong> Psychologie cognitive</li>
+                  <li><i class="fas fa-tools" aria-hidden="true"></i> <strong>Contribution :</strong> Ergonomie interfaces</li>
+                  <li><i class="fas fa-users" aria-hidden="true"></i> <strong>Focus :</strong> Expérience utilisateur</li>
+                  <li><i class="fas fa-link" aria-hidden="true"></i> <strong>Site :</strong> <a href="https://www.univ-rouen.fr/" target="_blank" rel="noopener">www.univ-rouen.fr<span class="sr-only"> (s'ouvre dans un nouvel onglet)</span></a></li>
+              </ul>
+            </div>
+
+            <div id="popup-caen" class="info-popup" role="tooltip" aria-live="polite">
+                <h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> Caen</h4>
                 <p><strong>Université de Caen</strong></p>
                 <ul>
                     <li><i class="fas fa-route"></i> <strong>Spécialité :</strong> Mobilité assistée</li>
                     <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Sciences comportementales</li>
                     <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Validation terrain</li>
                     <li><i class="fas fa-wheelchair"></i> <strong>Focus :</strong> Accessibilité</li>
-                    <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.unicaen.fr/" target="_blank">www.unicaen.fr/</a></li>
+                    <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.unicaen.fr/" target="_blank" rel="noopener noreferrer">www.unicaen.fr/</a></li>
                 </ul>
             </div>
-                
-                <div id="popup-paris" class="info-popup">
-                    <h4><i class="fas fa-graduation-cap"></i> Paris</h4>
-                    <p><strong>ENS Paris-Saclay</strong></p>
-                    <ul>
-                        <li><i class="fas fa-music"></i> <strong>Spécialité :</strong> Spatialisation sonore</li>
-                        <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Audio binaural</li>
-                        <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Algorithmes audio 3D</li>
-                        <li><i class="fas fa-ear"></i> <strong>Focus :</strong> Perception auditive</li>
-                        <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://ens-paris-saclay.fr/" target="_blank">www.ens-paris-saclay.fr</a></li>
-                    </ul>
-                </div>
-                
-                <div id="popup-grenoble" class="info-popup">
-                    <h4><i class="fas fa-mountain"></i> Grenoble</h4>
-                    <p><strong>Université Grenoble Alpes</strong></p>
-                    <ul>
-                        <li><i class="fas fa-laptop"></i> <strong>Spécialité :</strong> Systèmes interactifs</li>
-                        <li><i class="fas fa-microscope"></i> <strong>Recherche :</strong> Informatique embarquée</li>
-                        <li><i class="fas fa-tools"></i> <strong>Contribution :</strong> Développement hardware</li>
-                        <li><i class="fas fa-robot"></i> <strong>Focus :</strong> Intégration technologique</li>
-                        <li><i class="fas fa-users"></i> <strong>Site :</strong> <a href="https://www.univ-grenoble-alpes.fr/" target="_blank">www.univ-grenoble-alpes.fr</a></li>
-                    </ul>
-                </div>
+
+            <div id="popup-paris" class="info-popup" role="tooltip" aria-live="polite">
+                <h4><i class="fas fa-graduation-cap" aria-hidden="true"></i> Paris</h4>
+                <p><strong>ENS Paris-Saclay</strong></p>
+                <ul>
+                    <li><i class="fas fa-music" aria-hidden="true"></i> <strong>Spécialité :</strong> Spatialisation sonore</li>
+                    <li><i class="fas fa-microscope" aria-hidden="true"></i> <strong>Recherche :</strong> Audio binaural</li>
+                    <li><i class="fas fa-tools" aria-hidden="true"></i> <strong>Contribution :</strong> Algorithmes audio 3D</li>
+                    <li><i class="fas fa-ear" aria-hidden="true"></i> <strong>Focus :</strong> Perception auditive</li>
+                    <li><i class="fas fa-users" aria-hidden="true"></i> <strong>Site :</strong> <a href="https://ens-paris-saclay.fr/" target="_blank" rel="noopener noreferrer">www.ens-paris-saclay.fr</a></li>
+                </ul>
+            </div>
+
+            <div id="popup-grenoble" class="info-popup" role="tooltip" aria-live="polite">
+                <h4><i class="fas fa-mountain" aria-hidden="true"></i> Grenoble</h4>
+                <p><strong>Université Grenoble Alpes</strong></p>
+                <ul>
+                    <li><i class="fas fa-laptop" aria-hidden="true"></i> <strong>Spécialité :</strong> Systèmes interactifs</li>
+                    <li><i class="fas fa-microscope" aria-hidden="true"></i> <strong>Recherche :</strong> Informatique embarquée</li>
+                    <li><i class="fas fa-tools" aria-hidden="true"></i> <strong>Contribution :</strong> Développement hardware</li>
+                    <li><i class="fas fa-robot" aria-hidden="true"></i> <strong>Focus :</strong> Intégration technologique</li>
+                    <li><i class="fas fa-users" aria-hidden="true"></i> <strong>Site :</strong> <a href="https://www.univ-grenoble-alpes.fr/" target="_blank" rel="noopener noreferrer">www.univ-grenoble-alpes.fr</a></li>
+                </ul>
+            </div>
             </div>
         </div>
     </section>
@@ -189,16 +201,18 @@ Cette complémentarité permet d’éviter la surcharge d’un seul sens, tout e
 <!-- SECTION 4 - En savoir plus -->
 <div class="text-center">
   <a href="html/projet.html" class="custom-blue-button">
-    En savoir plus ›
+    En savoir plus ›<span class="sr-only">Lien vers la page détaillée du projet</span>
   </a>
 </div>
 
 </main>
       
-      <footer class="custom-site-footer text-center text-lg-start mt-auto border-top pt-4">
+      <footer class="custom-site-footer text-center text-lg-start mt-auto border-top pt-4" aria-label="Pied de page avec liens de navigation et informations légales">
         <div class="container">
 
           <!-- Liens -->
+          <nav aria-label="Plan du site">
+            <span class="sr-only">Navigation du pied de page</span>
           <div class="d-flex justify-content-center gap-5 mt-2 mb-3 flex-wrap flex-column flex-md-row">
             <a href="#" class="text-decoration-none text-dark">Accueil</a>
             <a href="html/projet.html" class="text-decoration-none text-dark">Projet</a>
@@ -209,20 +223,22 @@ Cette complémentarité permet d’éviter la surcharge d’un seul sens, tout e
             <a href="html/contact.html" class="text-decoration-none text-dark">Contact</a>
             <a href="html/jeu.html" class="text-decoration-none text-dark d-none d-md-inline">Jeu Interactif</a>
           </div>
-      
+          </nav>
           <!-- Mentions légales -->
           <p class="custom-mention text-muted small mb-0">&copy; Tous droits réservés – SAM-Guide / Projet financé par l'ANR, Réf. : ANR-21-CE33-0011-01 – Interaction – Robotique</p>
         </div>
       
         <!-- Logo en bas à droite -->
         <div class="position-relative">
-          <a href="https://anr.fr/" target="_blank"><img src="img/icons/logo_anr.webp" alt="Logo ANR" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;"></a>
+          <a href="https://anr.fr/" target="_blank" rel="noopener noreferrer"><img src="img/icons/logo_anr.webp" alt="Logo Agence Nationale de la Recherche - Organisme finançant le projet SAM-Guide" class="img-anr position-absolute bottom-0" style="width: 150px; height: auto;"><span class="sr-only"> (s'ouvre dans un nouvel onglet)</span></a>
         </div>
       </footer>
       
-    <script src="js/menu_burger.js"></script> 
-    <script src="js/carte_interactive.js"></script> 
+    <script src="js/menu_burger.js"></script> <!-- Script pour le menu burger -->
+    <script src="js/carte_interactive.js"></script> <!-- Script pour la carte interactive -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+    <script src="js/alert_tab.js"></script> <!-- Script pour l'alerte de navigation -->
+
 
 </body>
 </html>

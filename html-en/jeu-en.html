@@ -13,9 +13,12 @@
 </head>
 <body>
 
+  <!-- Skip link (Accessibilité) -->
+    <a href="#main-content" class="skip-link">Aller au contenu principal</a>
+
     <div id="header-en-placeholder"></div>
 
-<main>
+<main id="main-content">
 
       <section class="intro-banner text-center py-3 text-white" style="background-color: rgb(0, 57, 83);">
         <h2 class="m-0">Interactive Game</h2>
@@ -27,6 +30,7 @@
           <div class="game-box mx-auto p-4 text-center">
             <p class="mb-0 fw-bold responsive-text text-justify">
               Here is a running track. You control the character on it using the arrow keys. The goal of the game is to complete a full lap of the track; you will receive audio signals when you approach an edge and need to turn, a more high-pitched sound for the left edge and a more low-pitched sound for the right edge. If you do not have a visual impairment, feel free to close your eyes for more immersion.
+              <small>(WARNING : For users navigating via tabulation, it is recommended to use Chrome, as other browsers like Mozilla encounter issues)</small>
             </p>
           </div>
           <div></div>
@@ -56,5 +60,6 @@
       <script src="../js/components-en.js"></script>
     <script src="../js/menu_burger.js"></script> 
     <script src="../js/canvas_jeu.js"></script> 
+    <script src="../js/alert_tab-en.js"></script>
 </body>
 </html>

@@ -1,59 +1,114 @@
-// Functionalités de la carte interactive de France
-        const markers = document.querySelectorAll('.region-marker');
-        const popups = document.querySelectorAll('.info-popup');
+// Sélectionner tous les marqueurs (maintenant des buttons)
+const markers = document.querySelectorAll('.region-marker');
+const popups = document.querySelectorAll('.info-popup');
 
-        markers.forEach(marker => {
-            marker.addEventListener('mouseenter', function(e) {
-                const regionName = this.getAttribute('data-region');
-                const popup = document.getElementById(`popup-${regionName}`);
-                
-                // Cacher les autres popups
-                popups.forEach(p => p.classList.remove('show'));
-                
-                // Positionner et afficher le popup actuel
-                const rect = this.getBoundingClientRect();
-                const container = document.querySelector('.france-map-container').getBoundingClientRect();
-                
-                const popupWidth = 320;
-                const leftPosition = rect.left - container.left + rect.width/2 - popupWidth/2;
-                const topPosition = rect.top - container.top - 20;
-                
-                // S'assurer que le popup reste dans les limites du conteneur
-                const finalLeft = Math.max(10, Math.min(leftPosition, container.width - popupWidth - 10));
-                
-                popup.style.left = finalLeft + 'px';
-                popup.style.top = (topPosition - popup.offsetHeight) + 'px';
-                
-                setTimeout(() => {
-                    popup.classList.add('show');
-                }, 50);
-            });
+markers.forEach(marker => {
+    const region = marker.getAttribute('data-region');
+    const popup = document.getElementById(`popup-${region}`);
+    
+    // Événements existants (hover)
+    marker.addEventListener('mouseenter', () => {
+        showPopup(popup, marker);
+    });
+    
+    marker.addEventListener('mouseleave', () => {
+        hidePopup(popup);
+    });
+    
+    // NOUVEAUX événements pour l'accessibilité clavier
+    marker.addEventListener('focus', () => {
+        showPopup(popup, marker);
+    });
+    
+    marker.addEventListener('blur', () => {
+        hidePopup(popup);
+    });
+    
+    // Gestion du clic/Entrée
+    marker.addEventListener('click', () => {
+        togglePopup(popup, marker);
+    });
+    
+    marker.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            togglePopup(popup, marker);
+        }
+    });
+});
 
-            marker.addEventListener('mouseleave', function() {
-                const regionName = this.getAttribute('data-region');
-                const popup = document.getElementById(`popup-${regionName}`);
-                setTimeout(() => {
-                    if (!popup.matches(':hover') && !this.matches(':hover')) {
-                        popup.classList.remove('show');
-                    }
-                }, 100);
-            });
-        });
+function showPopup(popup, marker) {
+    // Cacher toutes les autres popups
+    popups.forEach(p => {
+        if (p !== popup) {
+            p.classList.remove('show');
+            p.setAttribute('aria-hidden', 'true');
+        }
+    });
+    
+    // Mettre à jour les attributs ARIA du marqueur
+    marker.setAttribute('aria-expanded', 'true');
+    
+    // Positionner et afficher la popup
+    positionPopup(popup, marker);
+    popup.classList.add('show');
+    popup.setAttribute('aria-hidden', 'false');
+    
+    // Optionnel : annoncer le contenu pour les lecteurs d'écran
+    announcePopupContent(popup);
+}
 
-        // Garder les popups visibles lors du survol
-        popups.forEach(popup => {
-            popup.addEventListener('mouseenter', function() {
-                this.classList.add('show');
-            });
-            
-            popup.addEventListener('mouseleave', function() {
-                this.classList.remove('show');
-            });
-        });
+function hidePopup(popup) {
+    popup.classList.remove('show');
+    popup.setAttribute('aria-hidden', 'true');
+    
+    // Remettre aria-expanded à false pour le marqueur correspondant
+    const region = popup.id.replace('popup-', '');
+    const marker = document.querySelector(`[data-region="${region}"]`);
+    if (marker) {
+        marker.setAttribute('aria-expanded', 'false');
+    }
+}
 
-        // Cacher les popups lorsqu'on clique à l'extérieur
-        document.addEventListener('click', function(e) {
-            if (!e.target.closest('.region-marker') && !e.target.closest('.info-popup')) {
-                popups.forEach(p => p.classList.remove('show'));
-            }
-        });
+// Fonction pour annoncer le contenu aux lecteurs d'écran
+function announcePopupContent(popup) {
+    const announcement = document.createElement('div');
+    announcement.setAttribute('aria-live', 'assertive');
+    announcement.setAttribute('aria-atomic', 'true');
+    announcement.className = 'sr-only';
+    
+    // Extraire le texte principal de la popup
+    const title = popup.querySelector('h4').textContent;
+    const university = popup.querySelector('p strong').textContent;
+    
+    announcement.textContent = `Informations affichées pour ${title}, ${university}. Utilisez les flèches pour naviguer dans le contenu.`;
+    
+    document.body.appendChild(announcement);
+    
+    // Supprimer l'annonce après un délai
+    setTimeout(() => {
+        document.body.removeChild(announcement);
+    }, 1000);
+}
+
+function togglePopup(popup, marker) {
+    if (popup.classList.contains('show')) {
+        hidePopup(popup);
+    } else {
+        showPopup(popup, marker);
+    }
+}
+
+function positionPopup(popup, marker) {
+    const rect = marker.getBoundingClientRect();
+    const container = document.querySelector('.france-map-container');
+    const containerRect = container.getBoundingClientRect();
+    
+    // Position relative au container
+    const left = rect.left - containerRect.left + (rect.width / 2);
+    const top = rect.top - containerRect.top - popup.offsetHeight - 15;
+    
+    popup.style.left = `${left}px`;
+    popup.style.top = `${top}px`;
+    popup.style.transform = 'translateX(-50%)';
+}
